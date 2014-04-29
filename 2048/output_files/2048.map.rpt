@@ -1,0 +1,734 @@
+Analysis & Synthesis report for 2048
+Sun Apr 27 19:39:35 2014
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |2048|keyboard:inst|keyMap:inst3|state
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Port Connectivity Checks: "GameBoard1:inst6|Color_Mapper:color_instance"
+ 15. Port Connectivity Checks: "GameBoard1:inst6|Tiles:tiles_instance"
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                          ;
++------------------------------------+--------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sun Apr 27 19:39:35 2014            ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
+; Revision Name                      ; 2048                                             ;
+; Top-level Entity Name              ; 2048                                             ;
+; Family                             ; Cyclone II                                       ;
+; Total logic elements               ; 358                                              ;
+;     Total combinational functions  ; 339                                              ;
+;     Dedicated logic registers      ; 55                                               ;
+; Total registers                    ; 55                                               ;
+; Total pins                         ; 69                                               ;
+; Total virtual pins                 ; 0                                                ;
+; Total memory bits                  ; 0                                                ;
+; Embedded Multiplier 9-bit elements ; 0                                                ;
+; Total PLLs                         ; 0                                                ;
++------------------------------------+--------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C35F672C6       ;                    ;
+; Top-level entity name                                                      ; 2048               ; 2048               ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                          ;
++---------------------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path            ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                     ; Library ;
++---------------------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------------+---------+
+; ../lab9_vga_vhdl_Spring2014/dreg.vhd        ; yes             ; User VHDL File                     ; C:/Users/Brad/Downloads/ECE385-master (4)/ECE385-master/lab9_vga_vhdl_Spring2014/dreg.vhd        ;         ;
+; ../lab9_vga_vhdl_Spring2014/psclkSample.vhd ; yes             ; User VHDL File                     ; C:/Users/Brad/Downloads/ECE385-master (4)/ECE385-master/lab9_vga_vhdl_Spring2014/psclkSample.vhd ;         ;
+; ../lab9_vga_vhdl_Spring2014/clkDiv.vhd      ; yes             ; User VHDL File                     ; C:/Users/Brad/Downloads/ECE385-master (4)/ECE385-master/lab9_vga_vhdl_Spring2014/clkDiv.vhd      ;         ;
+; ../lab9/hexDriver.vhd                       ; yes             ; User VHDL File                     ; C:/Users/Brad/Downloads/ECE385-master (4)/ECE385-master/lab9/hexDriver.vhd                       ;         ;
+; ../lab9_vga_vhdl_Spring2014/keyboard.bdf    ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Brad/Downloads/ECE385-master (4)/ECE385-master/lab9_vga_vhdl_Spring2014/keyboard.bdf    ;         ;
+; ../lab9_vga_vhdl_Spring2014/keymap.vhd      ; yes             ; User VHDL File                     ; C:/Users/Brad/Downloads/ECE385-master (4)/ECE385-master/lab9_vga_vhdl_Spring2014/keymap.vhd      ;         ;
+; ../lab9_vga_vhdl_Spring2014/keyCapt.vhd     ; yes             ; User VHDL File                     ; C:/Users/Brad/Downloads/ECE385-master (4)/ECE385-master/lab9_vga_vhdl_Spring2014/keyCapt.vhd     ;         ;
+; 2048.bdf                                    ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Brad/Downloads/ECE385-master (4)/ECE385-master/2048/2048.bdf                            ;         ;
+; GameBoard1.vhd                              ; yes             ; User VHDL File                     ; C:/Users/Brad/Downloads/ECE385-master (4)/ECE385-master/2048/GameBoard1.vhd                      ;         ;
+; Tiles.vhd                                   ; yes             ; User VHDL File                     ; C:/Users/Brad/Downloads/ECE385-master (4)/ECE385-master/2048/Tiles.vhd                           ;         ;
+; Color_Mapper.vhd                            ; yes             ; User VHDL File                     ; C:/Users/Brad/Downloads/ECE385-master (4)/ECE385-master/2048/Color_Mapper.vhd                    ;         ;
+; gameboardarray.vhd                          ; yes             ; User VHDL File                     ; C:/Users/Brad/Downloads/ECE385-master (4)/ECE385-master/2048/gameboardarray.vhd                  ;         ;
+; VGA_Controllerz.vhd                         ; yes             ; User VHDL File                     ; C:/Users/Brad/Downloads/ECE385-master (4)/ECE385-master/2048/VGA_Controllerz.vhd                 ;         ;
+; Sprite_location.vhd                         ; yes             ; User VHDL File                     ; C:/Users/Brad/Downloads/ECE385-master (4)/ECE385-master/2048/Sprite_location.vhd                 ;         ;
+; game_board_free.vhd                         ; yes             ; User VHDL File                     ; C:/Users/Brad/Downloads/ECE385-master (4)/ECE385-master/2048/game_board_free.vhd                 ;         ;
+; Sprite_Image.vhd                            ; yes             ; User VHDL File                     ; C:/Users/Brad/Downloads/ECE385-master (4)/ECE385-master/2048/Sprite_Image.vhd                    ;         ;
+; standard_sprite.vhd                         ; yes             ; User VHDL File                     ; C:/Users/Brad/Downloads/ECE385-master (4)/ECE385-master/2048/standard_sprite.vhd                 ;         ;
++---------------------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 358   ;
+;                                             ;       ;
+; Total combinational functions               ; 339   ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 147   ;
+;     -- 3 input functions                    ; 85    ;
+;     -- <=2 input functions                  ; 107   ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 252   ;
+;     -- arithmetic mode                      ; 87    ;
+;                                             ;       ;
+; Total registers                             ; 55    ;
+;     -- Dedicated logic registers            ; 55    ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 69    ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+; Maximum fan-out node                        ; reset ;
+; Maximum fan-out                             ; 48    ;
+; Total fan-out                               ; 1252  ;
+; Average fan-out                             ; 2.70  ;
++---------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                           ;
++------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+--------------+
+; Compilation Hierarchy Node               ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                     ; Library Name ;
++------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+--------------+
+; |2048                                    ; 339 (0)           ; 55 (0)       ; 0           ; 0            ; 0       ; 0         ; 69   ; 0            ; |2048                                                   ; work         ;
+;    |GameBoard1:inst6|                    ; 307 (0)           ; 23 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6                                  ; work         ;
+;       |Color_Mapper:color_instance|      ; 265 (265)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|Color_Mapper:color_instance      ; work         ;
+;       |vga_controllerz:vgaSync_instance| ; 42 (42)           ; 23 (23)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|vga_controllerz:vgaSync_instance ; work         ;
+;    |hexDriver:inst3|                     ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|hexDriver:inst3                                   ; work         ;
+;    |hexDriver:inst4|                     ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|hexDriver:inst4                                   ; work         ;
+;    |keyboard:inst|                       ; 18 (0)            ; 32 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|keyboard:inst                                     ; work         ;
+;       |clkDiv:inst|                      ; 11 (11)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|keyboard:inst|clkDiv:inst                         ; work         ;
+;       |keyCapture:ins3t|                 ; 6 (6)             ; 21 (21)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|keyboard:inst|keyCapture:ins3t                    ; work         ;
+;       |psclk:inst2|                      ; 1 (1)             ; 2 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|keyboard:inst|psclk:inst2                         ; work         ;
+;          |Dreg:reg1|                     ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|keyboard:inst|psclk:inst2|Dreg:reg1               ; work         ;
+;          |Dreg:reg2|                     ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|keyboard:inst|psclk:inst2|Dreg:reg2               ; work         ;
++------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------+
+; State Machine - |2048|keyboard:inst|keyMap:inst3|state                                                              ;
++------------+------------+------------+------------+------------+---------+---------+---------+---------+------------+
+; Name       ; state.dEnd ; state.sEnd ; state.aEnd ; state.wEnd ; state.d ; state.s ; state.a ; state.w ; state.idle ;
++------------+------------+------------+------------+------------+---------+---------+---------+---------+------------+
+; state.idle ; 0          ; 0          ; 0          ; 0          ; 0       ; 0       ; 0       ; 0       ; 0          ;
+; state.w    ; 0          ; 0          ; 0          ; 0          ; 0       ; 0       ; 0       ; 1       ; 1          ;
+; state.a    ; 0          ; 0          ; 0          ; 0          ; 0       ; 0       ; 1       ; 0       ; 1          ;
+; state.s    ; 0          ; 0          ; 0          ; 0          ; 0       ; 1       ; 0       ; 0       ; 1          ;
+; state.d    ; 0          ; 0          ; 0          ; 0          ; 1       ; 0       ; 0       ; 0       ; 1          ;
+; state.wEnd ; 0          ; 0          ; 0          ; 1          ; 0       ; 0       ; 0       ; 0       ; 1          ;
+; state.aEnd ; 0          ; 0          ; 1          ; 0          ; 0       ; 0       ; 0       ; 0       ; 1          ;
+; state.sEnd ; 0          ; 1          ; 0          ; 0          ; 0       ; 0       ; 0       ; 0       ; 1          ;
+; state.dEnd ; 1          ; 0          ; 0          ; 0          ; 0       ; 0       ; 0       ; 0       ; 1          ;
++------------+------------+------------+------------+------------+---------+---------+---------+---------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                                                   ;
++------------------------------------------------------------------+-----------------------------------------------------------+------------------------+
+; Latch Name                                                       ; Latch Enable Signal                                       ; Free of Timing Hazards ;
++------------------------------------------------------------------+-----------------------------------------------------------+------------------------+
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[1]$latch  ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[2]$latch  ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[3]$latch  ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[0]$latch  ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1]$latch  ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[2]$latch  ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[3]$latch  ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0]$latch  ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[4]$latch  ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[5]$latch  ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[6]$latch  ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[7]$latch  ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[8]$latch  ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[9]$latch  ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[10]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[11]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[12]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[13]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[14]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[15]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[16]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[17]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[18]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[19]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[20]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[21]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[22]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[23]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[24]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[25]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[26]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[27]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[28]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[29]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[30]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[31]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[4]$latch  ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[5]$latch  ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[6]$latch  ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[7]$latch  ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[8]$latch  ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[9]$latch  ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[10]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[11]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[12]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[13]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[14]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[15]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[16]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[17]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[18]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[19]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[20]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[21]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[22]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[23]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[24]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[25]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[26]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[27]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[28]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[29]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[30]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[31]$latch ; GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0] ; yes                    ;
+; Number of user-specified and inferred latches = 64               ;                                                           ;                        ;
++------------------------------------------------------------------+-----------------------------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                  ;
++----------------------------------------+--------------------------------------------+
+; Register name                          ; Reason for Removal                         ;
++----------------------------------------+--------------------------------------------+
+; keyboard:inst|keyMap:inst3|keyAckout   ; Merged with keyboard:inst|keyMap:inst3|key ;
+; keyboard:inst|keyMap:inst3|key         ; Lost fanout                                ;
+; keyboard:inst|keyCapture:ins3t|keyRed  ; Lost fanout                                ;
+; keyboard:inst|keyMap:inst3|state.idle  ; Lost fanout                                ;
+; keyboard:inst|keyMap:inst3|state.w     ; Lost fanout                                ;
+; keyboard:inst|keyMap:inst3|state.a     ; Lost fanout                                ;
+; keyboard:inst|keyMap:inst3|state.s     ; Lost fanout                                ;
+; keyboard:inst|keyMap:inst3|state.d     ; Lost fanout                                ;
+; keyboard:inst|keyMap:inst3|state.wEnd  ; Lost fanout                                ;
+; keyboard:inst|keyMap:inst3|state.aEnd  ; Lost fanout                                ;
+; keyboard:inst|keyMap:inst3|state.sEnd  ; Lost fanout                                ;
+; keyboard:inst|keyMap:inst3|state.dEnd  ; Lost fanout                                ;
+; Total Number of Removed Registers = 12 ;                                            ;
++----------------------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                  ;
++--------------------------------+--------------------+----------------------------------------+
+; Register name                  ; Reason for Removal ; Registers Removed due to This Register ;
++--------------------------------+--------------------+----------------------------------------+
+; keyboard:inst|keyMap:inst3|key ; Lost Fanouts       ; keyboard:inst|keyCapture:ins3t|keyRed  ;
++--------------------------------+--------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 55    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 43    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 21    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Red       ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Red       ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Red       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Blue[9]   ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Blue[4]   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "GameBoard1:inst6|Color_Mapper:color_instance"                                                           ;
++---------------------------+-------+----------+-------------------------------------------------------------------------------------+
+; Port                      ; Type  ; Severity ; Details                                                                             ;
++---------------------------+-------+----------+-------------------------------------------------------------------------------------+
+; regular_sprite[0..1]      ; Input ; Info     ; Stuck at GND                                                                        ;
+; regular_sprite[4..15]     ; Input ; Info     ; Stuck at GND                                                                        ;
+; regular_sprite[2][11..3]  ; Input ; Info     ; Stuck at VCC                                                                        ;
+; regular_sprite[2][15..12] ; Input ; Info     ; Stuck at GND                                                                        ;
+; regular_sprite[2][2..0]   ; Input ; Info     ; Stuck at GND                                                                        ;
+; regular_sprite[3][12..3]  ; Input ; Info     ; Stuck at VCC                                                                        ;
+; regular_sprite[3][15..13] ; Input ; Info     ; Stuck at GND                                                                        ;
+; regular_sprite[3][2..0]   ; Input ; Info     ; Stuck at GND                                                                        ;
+; draw_rs_x                 ; Bidir ; Warning  ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; draw_rs_y                 ; Bidir ; Warning  ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------------------+-------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "GameBoard1:inst6|Tiles:tiles_instance"                                                    ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; outfree    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; outsprites ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+    Info: Processing started: Sun Apr 27 19:39:32 2014
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off 2048 -c 2048
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file /users/brad/downloads/ece385-master (4)/ece385-master/lab9_vga_vhdl_spring2014/dreg.vhd
+    Info (12022): Found design unit 1: Dreg-Behavioral
+    Info (12023): Found entity 1: Dreg
+Info (12021): Found 2 design units, including 1 entities, in source file /users/brad/downloads/ece385-master (4)/ece385-master/lab9_vga_vhdl_spring2014/psclksample.vhd
+    Info (12022): Found design unit 1: psclk-Behavioral
+    Info (12023): Found entity 1: psclk
+Info (12021): Found 2 design units, including 1 entities, in source file /users/brad/downloads/ece385-master (4)/ece385-master/lab9_vga_vhdl_spring2014/clkdiv.vhd
+    Info (12022): Found design unit 1: clkDiv-Behavioral
+    Info (12023): Found entity 1: clkDiv
+Info (12021): Found 2 design units, including 1 entities, in source file /users/brad/downloads/ece385-master (4)/ece385-master/lab9/hexdriver.vhd
+    Info (12022): Found design unit 1: hexDriver-behavioral
+    Info (12023): Found entity 1: hexDriver
+Info (12021): Found 1 design units, including 1 entities, in source file /users/brad/downloads/ece385-master (4)/ece385-master/lab9_vga_vhdl_spring2014/keyboard.bdf
+    Info (12023): Found entity 1: keyboard
+Info (12021): Found 2 design units, including 1 entities, in source file /users/brad/downloads/ece385-master (4)/ece385-master/lab9_vga_vhdl_spring2014/keymap.vhd
+    Info (12022): Found design unit 1: keyMap-Behavioral
+    Info (12023): Found entity 1: keyMap
+Info (12021): Found 2 design units, including 1 entities, in source file /users/brad/downloads/ece385-master (4)/ece385-master/lab9_vga_vhdl_spring2014/keycapt.vhd
+    Info (12022): Found design unit 1: keyCapture-Behavioral
+    Info (12023): Found entity 1: keyCapture
+Info (12021): Found 2 design units, including 1 entities, in source file /users/brad/downloads/ece385-master (4)/ece385-master/lab9_vga_vhdl_spring2014/vga_controller.vhd
+    Info (12022): Found design unit 1: vga_controller-Behavioral
+    Info (12023): Found entity 1: vga_controller
+Info (12021): Found 1 design units, including 1 entities, in source file 2048.bdf
+    Info (12023): Found entity 1: 2048
+Info (12021): Found 2 design units, including 1 entities, in source file gameboardh.vhd
+    Info (12022): Found design unit 1: gameBoardH-behavioral
+    Info (12023): Found entity 1: gameBoardH
+Info (12021): Found 2 design units, including 1 entities, in source file newtile.vhd
+    Info (12022): Found design unit 1: newTile-behavioral
+    Info (12023): Found entity 1: newTile
+Info (12021): Found 2 design units, including 1 entities, in source file keyinterface.vhd
+    Info (12022): Found design unit 1: keyInterface-behavioral
+    Info (12023): Found entity 1: keyInterface
+Info (12021): Found 2 design units, including 1 entities, in source file gamelogic.vhd
+    Info (12022): Found design unit 1: gameLogic-behavioral
+    Info (12023): Found entity 1: gameLogic
+Info (12021): Found 2 design units, including 1 entities, in source file gameboard1.vhd
+    Info (12022): Found design unit 1: GameBoard1-Behavioral
+    Info (12023): Found entity 1: GameBoard1
+Info (12021): Found 2 design units, including 1 entities, in source file tiles.vhd
+    Info (12022): Found design unit 1: Tiles-Behavioral
+    Info (12023): Found entity 1: Tiles
+Info (12021): Found 2 design units, including 1 entities, in source file color_mapper.vhd
+    Info (12022): Found design unit 1: Color_Mapper-Behavioral
+    Info (12023): Found entity 1: Color_Mapper
+Warning (12019): Can't analyze file -- file VGA_Controller.vhd is missing
+Info (12021): Found 1 design units, including 0 entities, in source file gameboardarray.vhd
+    Info (12022): Found design unit 1: game_board_array
+Info (12021): Found 2 design units, including 1 entities, in source file vga_controllerz.vhd
+    Info (12022): Found design unit 1: vga_controllerz-Behavioral
+    Info (12023): Found entity 1: vga_controllerz
+Info (12021): Found 2 design units, including 1 entities, in source file sprites.vhd
+    Info (12022): Found design unit 1: Sprites-Behavioral
+    Info (12023): Found entity 1: Sprites
+Info (12021): Found 1 design units, including 0 entities, in source file sprite_location.vhd
+    Info (12022): Found design unit 1: sprite_set
+Warning (12019): Can't analyze file -- file Image_size.vhd is missing
+Info (12021): Found 1 design units, including 0 entities, in source file game_board_free.vhd
+    Info (12022): Found design unit 1: game_board_free
+Warning (12019): Can't analyze file -- file Image_Array.vhd is missing
+Info (12021): Found 1 design units, including 0 entities, in source file sprite_image.vhd
+    Info (12022): Found design unit 1: Sprite_Image
+Info (12021): Found 1 design units, including 0 entities, in source file standard_sprite.vhd
+    Info (12022): Found design unit 1: standard_sprite
+Info (12127): Elaborating entity "2048" for the top level hierarchy
+Warning (275043): Pin "freeTiles[15..0]" is missing source
+Info (12128): Elaborating entity "GameBoard1" for hierarchy "GameBoard1:inst6"
+Warning (10541): VHDL Signal Declaration warning at GameBoard1.vhd(38): used implicit default value for signal "moveAck" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Info (12128): Elaborating entity "vga_controllerz" for hierarchy "GameBoard1:inst6|vga_controllerz:vgaSync_instance"
+Info (12128): Elaborating entity "Tiles" for hierarchy "GameBoard1:inst6|Tiles:tiles_instance"
+Warning (10631): VHDL Process Statement warning at Tiles.vhd(93): inferring latch(es) for signal or variable "outFree", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at Tiles.vhd(93): inferring latch(es) for signal or variable "outSprites", which holds its previous value in one or more paths through the process
+Warning (10873): Using initial value X (don't care) for net "outFree[0][1..3]" at Tiles.vhd(23)
+Warning (10873): Using initial value X (don't care) for net "outFree[1..3]" at Tiles.vhd(23)
+Warning (10873): Using initial value X (don't care) for net "outSprites[0][1..3]" at Tiles.vhd(24)
+Warning (10873): Using initial value X (don't care) for net "outSprites[1..3]" at Tiles.vhd(24)
+Info (10041): Inferred latch for "outSprites[0][0][0]" at Tiles.vhd(93)
+Info (10041): Inferred latch for "outSprites[0][0][1]" at Tiles.vhd(93)
+Info (10041): Inferred latch for "outSprites[0][0][2]" at Tiles.vhd(93)
+Info (10041): Inferred latch for "outSprites[0][0][3]" at Tiles.vhd(93)
+Info (10041): Inferred latch for "outFree[0][0]" at Tiles.vhd(93)
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "outSprites" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "outSprites" into its bus
+Info (12128): Elaborating entity "Color_Mapper" for hierarchy "GameBoard1:inst6|Color_Mapper:color_instance"
+Warning (10542): VHDL Variable Declaration warning at Color_Mapper.vhd(39): used initial value expression for variable "gbFree" because variable was never assigned a value
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(129): signal "regular_sprite" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(129): signal "Draw_rs_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(129): signal "Draw_rs_x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(133): signal "Draw_rs_x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(134): signal "Draw_rs_x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(135): signal "Draw_rs_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(138): signal "Draw_rs_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(143): signal "regular_sprite" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(143): signal "Draw_rs_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(143): signal "Draw_rs_x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(147): signal "Draw_rs_x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(148): signal "Draw_rs_x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(149): signal "Draw_rs_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(152): signal "Draw_rs_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(160): signal "Draw_rs_x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(161): signal "Draw_rs_x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(162): signal "Draw_rs_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(165): signal "Draw_rs_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at Color_Mapper.vhd(35): inferring latch(es) for signal or variable "Draw_rs_x", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at Color_Mapper.vhd(35): inferring latch(es) for signal or variable "Draw_rs_y", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "Draw_rs_y[0]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[1]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[2]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[3]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[4]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[5]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[6]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[7]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[8]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[9]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[10]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[11]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[12]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[13]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[14]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[15]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[16]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[17]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[18]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[19]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[20]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[21]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[22]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[23]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[24]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[25]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[26]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[27]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[28]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[29]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[30]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_y[31]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[0]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[1]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[2]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[3]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[4]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[5]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[6]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[7]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[8]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[9]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[10]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[11]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[12]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[13]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[14]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[15]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[16]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[17]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[18]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[19]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[20]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[21]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[22]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[23]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[24]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[25]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[26]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[27]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[28]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[29]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[30]" at Color_Mapper.vhd(35)
+Info (10041): Inferred latch for "Draw_rs_x[31]" at Color_Mapper.vhd(35)
+Info (12128): Elaborating entity "keyboard" for hierarchy "keyboard:inst"
+Info (12128): Elaborating entity "keyMap" for hierarchy "keyboard:inst|keyMap:inst3"
+Warning (10492): VHDL Process Statement warning at keymap.vhd(28): signal "key" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "clkDiv" for hierarchy "keyboard:inst|clkDiv:inst"
+Info (12128): Elaborating entity "keyCapture" for hierarchy "keyboard:inst|keyCapture:ins3t"
+Warning (10631): VHDL Process Statement warning at keyCapt.vhd(18): inferring latch(es) for signal or variable "keyReady", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "keyReady" at keyCapt.vhd(18)
+Info (12128): Elaborating entity "psclk" for hierarchy "keyboard:inst|psclk:inst2"
+Info (12128): Elaborating entity "Dreg" for hierarchy "keyboard:inst|psclk:inst2|Dreg:reg1"
+Info (12128): Elaborating entity "hexDriver" for hierarchy "hexDriver:inst3"
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[1]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[2]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[3]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[0]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[4]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Equal1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[5]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[6]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[7]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[8]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[9]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[10]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[11]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[12]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[13]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[14]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[15]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[16]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[17]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[18]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[19]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[20]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[21]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[22]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[23]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[24]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[25]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[26]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[27]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[28]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[29]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[30]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13012): Latch GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_y[31]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GameBoard1:inst6|Color_Mapper:color_instance|Add1~synth
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "sync" is stuck at GND
+    Warning (13410): Pin "Blue[7]" is stuck at GND
+    Warning (13410): Pin "Blue[6]" is stuck at GND
+    Warning (13410): Pin "Blue[5]" is stuck at GND
+    Warning (13410): Pin "Blue[3]" is stuck at GND
+    Warning (13410): Pin "Blue[2]" is stuck at GND
+    Warning (13410): Pin "Blue[1]" is stuck at GND
+    Warning (13410): Pin "Blue[0]" is stuck at GND
+    Warning (13410): Pin "freeTiles[15]" is stuck at GND
+    Warning (13410): Pin "freeTiles[14]" is stuck at GND
+    Warning (13410): Pin "freeTiles[13]" is stuck at GND
+    Warning (13410): Pin "freeTiles[12]" is stuck at GND
+    Warning (13410): Pin "freeTiles[11]" is stuck at GND
+    Warning (13410): Pin "freeTiles[10]" is stuck at GND
+    Warning (13410): Pin "freeTiles[9]" is stuck at GND
+    Warning (13410): Pin "freeTiles[8]" is stuck at GND
+    Warning (13410): Pin "freeTiles[7]" is stuck at GND
+    Warning (13410): Pin "freeTiles[6]" is stuck at GND
+    Warning (13410): Pin "freeTiles[5]" is stuck at GND
+    Warning (13410): Pin "freeTiles[4]" is stuck at GND
+    Warning (13410): Pin "freeTiles[3]" is stuck at GND
+    Warning (13410): Pin "freeTiles[2]" is stuck at GND
+    Warning (13410): Pin "freeTiles[1]" is stuck at GND
+    Warning (13410): Pin "freeTiles[0]" is stuck at GND
+    Warning (13410): Pin "Green[7]" is stuck at GND
+    Warning (13410): Pin "Green[6]" is stuck at GND
+    Warning (13410): Pin "Green[5]" is stuck at GND
+    Warning (13410): Pin "Green[3]" is stuck at GND
+    Warning (13410): Pin "Green[2]" is stuck at GND
+    Warning (13410): Pin "Green[1]" is stuck at GND
+    Warning (13410): Pin "Green[0]" is stuck at GND
+    Warning (13410): Pin "Red[7]" is stuck at GND
+    Warning (13410): Pin "Red[6]" is stuck at GND
+    Warning (13410): Pin "Red[5]" is stuck at GND
+    Warning (13410): Pin "Red[3]" is stuck at GND
+    Warning (13410): Pin "Red[2]" is stuck at GND
+    Warning (13410): Pin "Red[1]" is stuck at GND
+    Warning (13410): Pin "Red[0]" is stuck at GND
+Info (17049): 11 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 436 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 65 output pins
+    Info (21061): Implemented 367 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 139 warnings
+    Info: Peak virtual memory: 500 megabytes
+    Info: Processing ended: Sun Apr 27 19:39:35 2014
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
+
+
