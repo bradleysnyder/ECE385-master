@@ -52,13 +52,6 @@ applicable agreement for further details.
 		(line (pt 0 120)(pt 24 120))
 	)
 	(port
-		(pt 0 96)
-		(input)
-		(text "tileMove[1..0]" (rect 32 104 106 118)(font "Arial" (font_size 8)))
-		(text "tileMove[1..0]" (rect 32 88 106 102)(font "Arial" (font_size 8)))
-		(line (pt 0 96)(pt 24 96))
-	)
-	(port
 		(pt 200 32)
 		(output)
 		(text "Red[9..0]" (rect 149 24 199 38)(font "Arial" (font_size 8)))
@@ -99,13 +92,6 @@ applicable agreement for further details.
 		(text "keyAck" (rect 32 152 74 166)(font "Arial" (font_size 8)))
 		(text "keyAck" (rect 32 136 74 150)(font "Arial" (font_size 8)))
 		(line (pt 0 144)(pt 24 144))
-	)
-	(port
-		(pt 200 176)
-		(output)
-		(text "moveAck" (rect 149 168 202 182)(font "Arial" (font_size 8)))
-		(text "moveAck" (rect 128 168 181 182)(font "Arial" (font_size 8)))
-		(line (pt 200 176)(pt 184 176))
 	)
 	(port
 		(pt 200 120)

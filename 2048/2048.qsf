@@ -59,7 +59,6 @@ set_global_assignment -name VHDL_FILE ../lab9/hexDriver.vhd
 set_global_assignment -name BDF_FILE ../lab9_vga_vhdl_Spring2014/keyboard.bdf
 set_global_assignment -name VHDL_FILE ../lab9_vga_vhdl_Spring2014/keymap.vhd
 set_global_assignment -name VHDL_FILE ../lab9_vga_vhdl_Spring2014/keyCapt.vhd
-set_global_assignment -name VHDL_FILE ../lab9_vga_vhdl_Spring2014/VGA_controller.vhd
 set_global_assignment -name BDF_FILE 2048.bdf
 set_global_assignment -name VHDL_FILE gameBoardH.vhd
 set_global_assignment -name VHDL_FILE newTile.vhd
@@ -139,7 +138,6 @@ set_location_assignment PIN_B7 -to sync
 set_location_assignment PIN_B8 -to VGA_clk
 set_global_assignment -name VHDL_FILE Tiles.vhd
 set_global_assignment -name VHDL_FILE Color_Mapper.vhd
-set_global_assignment -name VHDL_FILE VGA_Controller.vhd
 set_global_assignment -name VHDL_FILE gameboardarray.vhd
 set_global_assignment -name VHDL_FILE VGA_Controllerz.vhd
 set_location_assignment PIN_D8 -to vs
@@ -147,9 +145,7 @@ set_location_assignment PIN_A7 -to hs
 set_location_assignment PIN_D6 -to blank
 set_global_assignment -name VHDL_FILE Sprites.vhd
 set_global_assignment -name VHDL_FILE Sprite_location.vhd
-set_global_assignment -name VHDL_FILE Image_size.vhd
 set_global_assignment -name VHDL_FILE game_board_free.vhd
-set_global_assignment -name VHDL_FILE Image_Array.vhd
 set_global_assignment -name VHDL_FILE Sprite_Image.vhd
 set_global_assignment -name VHDL_FILE standard_sprite.vhd
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

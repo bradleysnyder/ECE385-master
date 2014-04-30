@@ -2,49 +2,33 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow Model Setup 'GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1]$latch'
-Slack : -4.584
-TNS   : -13.339
-
-Type  : Slow Model Setup 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|horiz_count[0]'
-Slack : -2.419
-TNS   : -13.464
-
 Type  : Slow Model Setup 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|clkdiv'
-Slack : -1.967
-TNS   : -27.380
+Slack : -2.355
+TNS   : -35.930
 
 Type  : Slow Model Setup 'keyboard:inst|psclk:inst2|Dreg:reg1|Q'
-Slack : -1.291
-TNS   : -11.808
+Slack : -1.260
+TNS   : -11.949
 
 Type  : Slow Model Setup 'clk'
-Slack : -0.933
-TNS   : -5.957
+Slack : -0.940
+TNS   : -5.401
 
 Type  : Slow Model Setup 'keyboard:inst|clkDiv:inst|temp'
 Slack : 0.507
 TNS   : 0.000
 
-Type  : Slow Model Hold 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|clkdiv'
-Slack : -5.878
-TNS   : -14.974
-
-Type  : Slow Model Hold 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|horiz_count[0]'
-Slack : -4.396
-TNS   : -20.737
-
 Type  : Slow Model Hold 'clk'
 Slack : -2.549
-TNS   : -3.304
-
-Type  : Slow Model Hold 'GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1]$latch'
-Slack : -1.398
-TNS   : -3.690
+TNS   : -5.082
 
 Type  : Slow Model Hold 'keyboard:inst|clkDiv:inst|temp'
 Slack : -0.237
 TNS   : -0.237
+
+Type  : Slow Model Hold 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|clkdiv'
+Slack : 0.391
+TNS   : 0.000
 
 Type  : Slow Model Hold 'keyboard:inst|psclk:inst2|Dreg:reg1|Q'
 Slack : 0.391
@@ -66,57 +50,33 @@ Type  : Slow Model Minimum Pulse Width 'keyboard:inst|clkDiv:inst|temp'
 Slack : -0.500
 TNS   : -2.000
 
-Type  : Slow Model Minimum Pulse Width 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|horiz_count[0]'
-Slack : 0.122
-TNS   : 0.000
-
-Type  : Slow Model Minimum Pulse Width 'GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1]$latch'
-Slack : 0.500
-TNS   : 0.000
-
-Type  : Fast Model Setup 'GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1]$latch'
-Slack : -1.696
-TNS   : -4.911
-
-Type  : Fast Model Setup 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|horiz_count[0]'
-Slack : -0.908
-TNS   : -4.569
-
 Type  : Fast Model Setup 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|clkdiv'
-Slack : -0.361
-TNS   : -4.299
+Slack : -0.509
+TNS   : -6.490
 
 Type  : Fast Model Setup 'keyboard:inst|psclk:inst2|Dreg:reg1|Q'
-Slack : -0.126
-TNS   : -1.008
+Slack : -0.093
+TNS   : -0.744
 
 Type  : Fast Model Setup 'clk'
-Slack : 0.116
+Slack : 0.108
 TNS   : 0.000
 
 Type  : Fast Model Setup 'keyboard:inst|clkDiv:inst|temp'
-Slack : 0.586
+Slack : 0.587
 TNS   : 0.000
-
-Type  : Fast Model Hold 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|clkdiv'
-Slack : -3.170
-TNS   : -9.095
-
-Type  : Fast Model Hold 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|horiz_count[0]'
-Slack : -2.250
-TNS   : -10.093
 
 Type  : Fast Model Hold 'clk'
 Slack : -1.592
-TNS   : -2.373
-
-Type  : Fast Model Hold 'GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1]$latch'
-Slack : -0.927
-TNS   : -2.564
+TNS   : -3.170
 
 Type  : Fast Model Hold 'keyboard:inst|clkDiv:inst|temp'
-Slack : -0.206
-TNS   : -0.206
+Slack : -0.207
+TNS   : -0.207
+
+Type  : Fast Model Hold 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|clkdiv'
+Slack : 0.215
+TNS   : 0.000
 
 Type  : Fast Model Hold 'keyboard:inst|psclk:inst2|Dreg:reg1|Q'
 Slack : 0.215
@@ -137,13 +97,5 @@ TNS   : -21.000
 Type  : Fast Model Minimum Pulse Width 'keyboard:inst|clkDiv:inst|temp'
 Slack : -0.500
 TNS   : -2.000
-
-Type  : Fast Model Minimum Pulse Width 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|horiz_count[0]'
-Slack : 0.280
-TNS   : 0.000
-
-Type  : Fast Model Minimum Pulse Width 'GameBoard1:inst6|Color_Mapper:color_instance|Draw_rs_x[1]$latch'
-Slack : 0.500
-TNS   : 0.000
 
 ------------------------------------------------------------

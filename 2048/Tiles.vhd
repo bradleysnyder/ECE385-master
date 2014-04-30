@@ -12,6 +12,7 @@ use work.game_board_array.all;
 use work.game_board_free.all;
 use work.Sprite_set.all;
 use work.Sprite_Image.all;
+--use work.rand.all; not working. Library doesn't contain primary unit rand
 
 entity Tiles is
     Port ( Reset : in std_logic;
@@ -24,6 +25,10 @@ entity Tiles is
 			  tileMove : in std_logic_vector(1 downto 0);
 			  outFree : out game_board_free_spaces; 
 			  outSprites : out sprite_location;
+			  xCoord : out std_logic_vector(1 downto 0);
+			  yCoord : out std_logic_vector (1 downto 0);
+			  x2Coord : out std_logic_vector(1 downto 0);
+			  y2Coord : out std_logic_vector (1 downto 0);
 		     keyCode : in std_logic_vector(7 downto 0);
 			  keyAck : out std_logic);
 end Tiles;
@@ -32,21 +37,27 @@ end Tiles;
 --and assuming board is empty
 architecture Behavioral of Tiles is
 
-signal Tile_X_Pos, Tile_Y_Pos, Tile_X_motion, Tile_Y_motion : std_logic_vector (9 downto 0);
+signal Tile_X_Pos, Tile_Y_Pos, Tile_X_motion, Tile_Y_motion, Tile_X2_Motion, Tile_Y2_Motion, Tile_X2_Pos, Tile_Y2_Pos : std_logic_vector (9 downto 0);
 signal Tile_Size : std_logic_vector (10 downto 0); --made 10 to 0 for placing in gb
 
 
 constant Tile_X_Step : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(2, 10);
 constant Tile_Y_Step : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(2, 10);
 
+
+--might have to change for tile..don't want it moving that far
 constant X_Min    : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(0, 10);  --Leftmost point on the X axis
 constant X_Max    : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(639, 10);  --Rightmost point on the X axis
 constant Y_Min    : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(0, 10);   --Topmost point on the Y axis
 constant Y_Max    : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(479, 10);  --Bottommost point on the Y axis
 
 
-constant Tile_X_Start : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(66, 10);  --Center position on the X axis
-constant Tile_Y_Start : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(66, 10);  --Center position on the Y axis
+constant Tile_X_Start : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(42, 10);  --Center position on the X axis
+constant Tile_Y_Start : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(50, 10);  --Center position on the Y axis
+
+constant Tile_X2_Start : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(158, 10);  --Center position on the X axis
+constant Tile_Y2_Start : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(50, 10);  --Center position on the X axis
+
 
 
 signal dataAck : std_logic := '0';
@@ -54,6 +65,78 @@ shared variable dataBuff : std_logic_vector(7 downto 0);
 signal dataReady : std_logic := '0';
 
 signal rand_num : integer := 0;
+
+signal tile_2 : img := 	  ("000000000000000000000000000000000000000000000000",
+									"000000000000000000000000000000000000000000000000",
+									"000000000000000000000000000000000000000000000000",
+									"000000000000000000000000000000000000000000000000",
+									"000000000000000000000000000000000000000000000000",
+									"000000000000000001111111111111111000000000000000",
+									"000000000000001111111111111111111111000000000000",
+									"000000000000011111111111111111111111100000000000",
+									"000000000000011111110000000000111111100000000000",
+									"000000000000000000000000000001111111000000000000",
+									"000000000000000000000000000011111110000000000000",
+									"000000000000000000000000000111111100000000000000",
+									"000000000000000000000000001111111000000000000000",
+									"000000000000000000000000011111110000000000000000",
+									"000000000000000000000000111111100000000000000000",
+									"000000000000000000000001111111000000000000000000",
+									"000000000000000000000011111110000000000000000000",
+									"000000000000000000000111111100000000000000000000",
+									"000000000000000000001111111000000000000000000000",
+									"000000000000000000011111110000000000000000000000",
+									"000000000000000000111111100000000000000000000000",
+									"000000000000000001111111000000000000000000000000",
+									"000000000000000011111111000000000000000000000000",
+									"000000000000001111111110000000000000000000000000",
+									"000000000000111111111111111111111111100000000000",
+									"000000000000111111111111111111111111100000000000",
+									"000000000000000000000000000000000000000000000000",
+									"000000000000000000000000000000000000000000000000",
+									"000000000000000000000000000000000000000000000000",
+									"000000000000000000000000000000000000000000000000",
+									"000000000000000000000000000000000000000000000000",
+									"000000000000000000000000000000000000000000000000");
+									
+signal tile_4 : img := ("000000000000000000000000000000000000000000000000",
+								"000000000000000000000000000000000000000000000000",
+								"000000000000000000000000000000000000000000000000",
+								"000000000000000000000000000000000000000000000000",
+								"000000000000000000000000000000000000000000000000",
+								"000000000000000000000000000000000000000000000000",
+								"000000000000000000000000111111111111000000000000",
+								"000000000000000000000001111111111111000000000000",
+								"000000000000000000000011111100011111000000000000",
+								"000000000000000000000111111000011111000000000000",
+								"000000000000000000001111110000011111000000000000",
+								"000000000000000000011111100000011111000000000000",
+								"000000000000000000111111000000011111000000000000",
+								"000000000000000001111110000000011111000000000000",
+								"000000000000000011111100000000011111000000000000",
+								"000000000000000111111000000000011111000000000000",
+								"000000000000001111110000000000011111000000000000",
+								"000000000000011111100000000000011111000000000000",
+								"000000000000111111000000000000011111000000000000",
+								"000000000001111110000000000000011111000000000000",
+								"000000000011111111111111111111111111110000000000",
+								"000000000111111111111111111111111111110000000000",
+								"000000000011111111111111111111111111100000000000",
+								"000000000000000000000000000000011111000000000000",
+								"000000000000000000000000000000011111000000000000",
+								"000000000000000000000000000000011111000000000000",
+								"000000000000000000000000000000011111000000000000",
+								"000000000000000000000000000000000000000000000000",
+								"000000000000000000000000000000000000000000000000",
+								"000000000000000000000000000000000000000000000000",
+								"000000000000000000000000000000000000000000000000",
+								"000000000000000000000000000000000000000000000000");
+								
+--signal xCoord : std_logic_vector (1 downto 0) := "00";
+--signal yCoord : std_logic_vector (1 downto 0) := "00";
+--signal x2Coord : std_logic_vector (1 downto 0) := "00";
+--signal y2Coord : std_logic_vector (1 downto 0) := "00";
+
 
 
 Begin
@@ -101,6 +184,17 @@ Begin
 			Tile_X_pos <= Tile_X_Start; --change later with randomness
 			outFree(0, 0) <= '1';		--also change to random place
 			outSprites(0, 0) <= "0001";
+			xCoord <= "00";
+			yCoord <= "00";
+			
+			Tile_Y2_Motion <= "0000000000";
+			Tile_X2_Motion <= "0000000000";
+			Tile_Y2_Pos <= Tile_Y2_Start;
+			Tile_X2_Pos <= Tile_X2_start;
+			outFree(0,1) <= '1';
+			outSprites(0, 1) <= "0010";	--set up for two sprites on top
+			x2Coord <= "01";
+			y2Coord <= "00";
 
 		 elsif(rising_edge(frame_clk)) then
 			if(dataReady = '1') then
