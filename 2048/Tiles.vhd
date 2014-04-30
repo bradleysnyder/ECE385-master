@@ -17,6 +17,8 @@ entity Tiles is
     Port ( Reset : in std_logic;
 			  frame_clk : in std_logic;
 		     newKey : in std_logic;
+			  DrawX : in std_logic_vector(9 downto 0);
+			  DrawY : in std_logic_vector(9 downto 0);
 			  --need some Tiles stuff
 			  --outboard : out gameBoard;
 			  tileMove : in std_logic_vector(1 downto 0);

@@ -4,6 +4,9 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_SIGNED.ALL;
+use IEEE.math_real.ALL;
+use IEEE.math_real.uniform;
+use IEEE.numeric_std.all;
 
 use work.game_board_array.all;
 use work.Sprite_set.all;
@@ -15,11 +18,12 @@ entity Color_Mapper is
    Port ( 
           DrawX : in std_logic_vector(9 downto 0);
           DrawY : in std_logic_vector(9 downto 0);
-			 regular_sprite : in array_16x16;
+			 score_sprite : in array_16x16;
 			 --Draw_rs_x : in std_logic_vector(3 downto 0);
 			 --Draw_rs_y : in std_logic_vector(3 downto 0);
-			 Draw_rs_x : inout integer;
-			 Draw_rs_y : inout integer;
+			 --clk : in std_logic;
+			 Draw_rs_x : inout integer range 0 to 15;
+			 Draw_rs_y : inout integer range 0 to 15;
           Red   : out std_logic_vector(9 downto 0);
           Green : out std_logic_vector(9 downto 0);
           Blue  : out std_logic_vector(9 downto 0));
@@ -28,15 +32,20 @@ end Color_Mapper;
 architecture Behavioral of Color_Mapper is
 
 signal Tile_on : std_logic := '0';
+--signal Draw_rs_x : integer := 0;
+--signal Draw_rs_y : integer := 0;
 --signal count : std_logic_vector (3 downto 0) := "0000";
 
 begin
 
-  RGB_Display : process (Tile_on, DrawX, DrawY)
+  RGB_Display : process (Tile_on, DrawX, DrawY, Draw_rs_x, Draw_rs_y, score_sprite)
     --variable GreenVar, BlueVar : std_logic_vector(22 downto 0);
 	--want to place bamegoard 80-560, 80-560..maybe not
 	type freeSpaces is array(0 to 3, 0 to 3) of std_logic;
 	variable gbFree : freeSpaces := (('0', '0', '0', '0'), ('0', '0', '0', '0'), ('0', '0', '0', '0'), ('0', '0', '0', '0')); --keeps track of free spaces
+	variable temp : std_logic;
+	--variable xDraw : integer := Draw_rs_x;
+	--variable yDraw : integer := Draw_rs_y;
 	--variable count
 	--I think gbFree should contain higher bits so that we can just match it with a sprite contained in mem...4 bits should be enough
 
@@ -126,47 +135,46 @@ begin
       --Blue <= "0000001000";
 	 elsif (DrawX >= 520 and DrawX <= 620 and DrawY >= 220 and DrawY <= 260) then -- score box
 		if (DrawX >= 525 and DrawX <= 541 and DrawY >= 222 and DrawY <= 238) then -- S, changed from 240 to 256 checking for unsafe behavior
-			if (regular_sprite(Draw_rs_y)(Draw_rs_x) = '1') then --this isn't working too well
+			--temp := score_sprite(Draw_rs_y)(Draw_rs_x);
+			--if (score_sprite(to_integer(unsigned(Draw_rs_x)))(to_integer(unsigned(Draw_rs_y))) = '0') then --this isn't working too well
+			if (score_sprite(Draw_rs_y)(Draw_rs_x) = '0') then
 				Red <= "0000000000";
 				Green <= "1000000000";
 				Blue <= "0000000000";
-				Draw_rs_x <= Draw_rs_x + 1;
-				if (Draw_rs_x + 1 = 16) then
-					Draw_rs_y <= Draw_rs_y + 1;
-					Draw_rs_x <= 0;
-				end if;
-				if (Draw_rs_y + 1 = 16) then
-					Draw_rs_y <= 0;
-					Draw_rs_x <= 0;
-				end if;
-					
-			elsif (regular_sprite(Draw_rs_y)(Draw_rs_x) = '0') then
-				Red <= "0000000000";
-				Green <= "0000000000";
-				Blue <= "1000000000";
-				Draw_rs_x <= Draw_rs_x + 1;
-				if (Draw_rs_x + 1 = 16) then
-					Draw_rs_y <= Draw_rs_y + 1;
-					Draw_rs_x <= 0;
-				end if;
-				if (Draw_rs_y + 1 = 16) then
-					Draw_rs_y <= 0;
-					Draw_rs_x <= 0;
-				end if;
+				--Draw_rs_x <= Draw_rs_x + 1;
+			--elsif (score_sprite(Draw_rs_y)(Draw_rs_x) = '1') then
+				--Red <= "0000000000";
+				--Green <= "0000000000";
+				--Blue <= "1000000000";
+				--Draw_rs_x <= Draw_rs_x + 1;
+				--if (Draw_rs_x  = 15) then
+					--if (Draw_rs_y = 15) then
+						--Draw_rs_y <= 0;
+						--Draw_rs_x <= 0;
+					--else
+						--Draw_rs_y <= Draw_rs_y + 1;
+						--Draw_rs_x <= 0;
+					--end if;
+				--else
+					--Draw_rs_x <= Draw_rs_x + 1;
+				--end if;
 			else
 				Red <= "0000000000";
 				Green <= "0000000000";
 				Blue <= "1000000000";
-				Draw_rs_x <= Draw_rs_x + 1;
-				if (Draw_rs_x + 1 = 16) then
+			end if;
+			if (Draw_rs_x  = 15) then
+				if (Draw_rs_y = 15) then
+					Draw_rs_y <= 0;
+					Draw_rs_x <= 0;
+				else
 					Draw_rs_y <= Draw_rs_y + 1;
 					Draw_rs_x <= 0;
 				end if;
-				if (Draw_rs_y + 1 = 16) then
-					Draw_rs_y <= 0;
-					Draw_rs_x <= 0;
-				end if;
+			else
+				Draw_rs_x <= Draw_rs_x + 1;
 			end if;
+			--end if;
 		else
 			Red <= "1000000000";
 			Green <= "0000000000";

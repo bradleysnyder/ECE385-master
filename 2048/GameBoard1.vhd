@@ -55,6 +55,8 @@ component Tiles is
 			  frame_clk : in std_logic;
 		     newKey : in std_logic;
 			  tileMove : in std_logic_vector(1 downto 0);
+			  DrawX : in std_logic_vector(9 downto 0);
+			  DrawY : in std_logic_vector(9 downto 0);
 			  --need some Tiles stuff
 			  --taken : in gbBlocks;
 			  --sprite : in sprite_set;
@@ -81,11 +83,12 @@ component Color_Mapper is
     Port ( --need Tile stuff
            DrawX : in std_logic_vector(9 downto 0);
            DrawY : in std_logic_vector(9 downto 0);
-			  regular_sprite : in array_16x16;
+			  score_sprite : in array_16x16;
 			  --Draw_rs_x : in std_logic_vector(3 downto 0);
 			  --Draw_rs_y : in std_logic_vector(3 downto 0);
-			  Draw_rs_x : inout integer;
-			  Draw_rs_y : inout integer;
+			  --clk : in std_logic;
+			  Draw_rs_x : inout integer range 0 to 15;
+			  Draw_rs_y : inout integer range 0 to 15;
            Red   : out std_logic_vector(9 downto 0);
            Green : out std_logic_vector(9 downto 0);
            Blue  : out std_logic_vector(9 downto 0));
@@ -93,31 +96,50 @@ end component;
 
 component Sprites is
 	Port (
-				sprite_sel: in std_logic_vector(3 downto 0);
-				sprite_img : out img;
-				regular_sprite : out array_16x16
+				--sprite_sel: in std_logic_vector(3 downto 0);
+				--sprite_img : out img;
+				score_sprite_out : out array_16x16
 				);
 end component;	
 
 signal Reset_h, vsSig : std_logic;
 signal DrawXSig, DrawYSig : std_logic_vector(9 downto 0);
 signal keyIn : std_logic_vector(7 downto 0);
-signal regular_sprite : array_16x16;
+--signal regular_sprite : array_16x16;
 --variable regular_sprite : array_16x16;
+
+--signal score_sprite : array_16x16;
 
 --signal Draw_rs_x : std_logic_vector(3 downto 0);
 --signal Draw_rs_y : std_logic_vector(3 downto 0);
 
-signal Draw_rs_x : integer := 0;
-signal Draw_rs_y : integer := 0;
+--signal Draw_rs_x : std_logic_vector (3 downto 0) := "0000";
+--signal Draw_rs_y : std_logic_vector (3 downto 0) := "0000";
+
+signal Draw_rs_x : integer range 0 to 15 := 0;
+signal Draw_rs_y : integer range 0 to 15 := 0;
+
+--signal Draw_rs_x is Draw_rx;
+--signal Draw_rs_y is Draw_rx;
+
+
+--signal Draw_rs_x : integer;
+--signal Draw_rs_y : integer;
+
+--signal score_sprite : array_16x16;
+signal score_sprite : array_16x16 :=("0000000000000000", "0000111111111000", "0001111111111000", "0000111111111100", --this is messing up giving undefined behavior
+							"0000111111110000", "0011111000000000", "0000000000000000", "0000000000000000", 
+						"0000000000000000", "0000000000000000", "0000000000000000", "0000000000000000",
+							"0000000000000000", "0000000000000000", "0000000000000000", "0000000000000000");
+
 
 
 begin
 
-regular_sprite <= (  "0000000000000000", "0000000000000000", "0000111111111000", "0001111111111000", --this is messing up giving undefined behavior
-							"0000000000000000", "0000000000000000", "0000000000000000", "0000000000000000", 
-						"0000000000000000", "0000000000000000", "0000000000000000", "0000000000000000",
-							"0000000000000000", "0000000000000000", "0000000000000000", "0000000000000000");
+--score_sprite_out <= (  "0000000000000000", "0000000000000000", "0000000000000000", "0000000000000000", --this is messing up giving undefined behavior
+	--						"0000000000000000", "0000000000000000", "0000000000000000", "0000000000000000", 
+		--				"0000000000000000", "0000000000000000", "0000000000000000", "0000000000000000",
+			--				"0000000000000000", "0000000000000000", "0000000000000000", "0000000000000000");
 
 							
 --Draw_rs_x <= "0000";
@@ -127,8 +149,15 @@ regular_sprite <= (  "0000000000000000", "0000000000000000", "0000111111111000",
 	--														"0000000000000000", "0000000000000000", "0000000000000000", "0000000000000000", 
 		--													"0000000000000000", "0000000000000000", "0000000000000000", "0000000000000000",
 			--												"0000000000000000", "0000000000000000", "0000000000000000", "0000000000000000");							
-							
+		
+--variable Draw_rs_x : integer <= 0;
+--variable Draw_rs_y : integer <= 0;		
 Reset_h <= Reset; -- The push buttons are active low
+
+--shared variable Draw_rs_x : integer range 0 to 15 := 0;
+--shared variable Draw_rs_y : integer range 0 to 15 := 0;
+
+
 
 vgaSync_instance : vga_controllerz
    Port map(clk => clk,
@@ -147,6 +176,10 @@ tiles_instance : Tiles
             newKey => newKey,
 				keyCode => keyCode,
 				tileMove => tileMove,
+				outFree => outFree,
+			   outSprites => outSprites,
+				DrawX => DrawXSig,
+				DrawY => DrawYSig,
 				--need Tiles stuff here
 				keyAck => keyAck);
 
@@ -155,7 +188,8 @@ color_instance : Color_Mapper
 				
             DrawX => DrawXSig,
             DrawY => DrawYSig,
-				regular_sprite => regular_sprite,
+				--clk =>clk,
+				score_sprite => score_sprite,
 				Draw_rs_x => Draw_rs_x,
 				Draw_rs_y => Draw_rs_y,
             Red => Red,
@@ -164,8 +198,9 @@ color_instance : Color_Mapper
 				
 --sprites_instance : Sprites
 	--Port Map(
-		--			sprite_sel => sprite_sel,
-			--		sprite_img => sprite_img);
+					--sprite_sel => sprite_sel,
+					--sprite_img => sprite_img,
+		--			score_sprite_out =>score_sprite);
 
 vs <= vsSig;
 

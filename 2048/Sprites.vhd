@@ -13,9 +13,9 @@ use work.standard_sprite.all;
 
 entity Sprites is
 	Port (
-			sprite_sel: in std_logic_vector(3 downto 0);
-			sprite_img : out img;
-			score_sprite : out array_16x16);
+			--sprite_sel: in std_logic_vector(3 downto 0);
+			--sprite_img : out img;
+			score_sprite_out : inout array_16x16);
 
 end Sprites;
 
@@ -324,7 +324,7 @@ architecture Behavioral of Sprites is
 		sprite_score_9(15) 	<= "0000000000000000"; 
 
 
-	score_sprite <= sprite_S;
+	score_sprite_out <= sprite_S;
 	--end process;
 
 
