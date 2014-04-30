@@ -206,8 +206,8 @@ signal sprite_back_color2 : std_logic_vector (29 downto 0) := "00000000000000000
 
 
 
-signal outFree : game_board_free_spaces := (('0', '0', '0', '0'), ('0', '0', '0', '0'), ('0', '0', '0', '0'), ('0', '0', '0', '0'));
-signal outSprites : sprite_location := (("0000","0000","0000","0000"),("0000","0000","0000","0000"),("0000","0000","0000","0000"),("0000","0000","0000","0000"));
+signal outFree : game_board_free_spaces; --:= (('0', '0', '0', '0'), ('0', '0', '0', '0'), ('0', '0', '0', '0'), ('0', '0', '0', '0'));
+signal outSprites : sprite_location; --:= (("0000","0000","0000","0000"),("0000","0000","0000","0000"),("0000","0000","0000","0000"),("0000","0000","0000","0000"));
 
 signal xCoord : std_logic_vector (1 downto 0) := "00";
 signal yCoord : std_logic_vector (1 downto 0) := "00";

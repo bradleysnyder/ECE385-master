@@ -176,14 +176,17 @@ Begin
 	end process;
 
 	Move_tiles : process(Reset, frame_clk, Tile_Size, keyCode, dataReady)
+	variable gb : sprite_location := (("0001", "0001", "0000", "0000"), ("0101", "0110", "0111", "1000"), ("1001", "1010", "1011", "0000"), ("0000", "0000", "0000", "0000"));
+	variable gbFree : game_board_free_spaces := (('1', '1', '0', '0'), ('1', '1', '1', '1'), ('1', '1', '1', '0'), ('0', '0', '0', '0'));
+	variable emptyBoard : std_logic := '1';
 	Begin
 		if(Reset = '1') then   --Asynchronous Reset
 			Tile_Y_Motion <= "0000000000";
 			Tile_X_Motion <= "0000000000";
 			Tile_Y_Pos <= Tile_Y_Start; --to change later with random insertion
 			Tile_X_pos <= Tile_X_Start; --change later with randomness
-			outFree(0, 0) <= '1';		--also change to random place
-			outSprites(0, 0) <= "0001";
+			--outFree(0, 0) <= '1';		--also change to random place
+			--outSprites(0, 0) <= "0001";
 			xCoord <= "00";
 			yCoord <= "00";
 			
@@ -191,41 +194,91 @@ Begin
 			Tile_X2_Motion <= "0000000000";
 			Tile_Y2_Pos <= Tile_Y2_Start;
 			Tile_X2_Pos <= Tile_X2_start;
-			outFree(0,1) <= '1';
-			outSprites(0, 1) <= "0010";	--set up for two sprites on top
+			--outFree(0,1) <= '1';
+			--outSprites(0, 1) <= "0010";	--set up for two sprites on top
 			x2Coord <= "01";
 			y2Coord <= "00";
 
 		 elsif(rising_edge(frame_clk)) then
 			if(dataReady = '1') then
 				if(dataBuff = "00011101") then ---W
-					if(Tile_Y_Pos - Tile_Size <= Y_Min) then
-						Tile_Y_Motion <= Tile_Y_Step;
-					else
-						Tile_Y_Motion <= not(Tile_Y_Step) + 1;
-					end if;
-					Tile_X_Motion <= CONV_STD_LOGIC_VECTOR(0, 10);
+					for index in  0 to 3 loop
+						for jndex in 1 to 3 loop
+							if(gbFree(jndex, index) = '1') then
+								for kndex in jndex - 1 downto 0 loop
+									if(gbFree(kndex, index) = '0') then
+										gbFree(kndex + 1, index) := '0';
+										gbFree(kndex, index) := '1';
+										gb(kndex, index) := gb(kndex + 1, index);
+										gb(kndex + 1, index) := "0000";
+									elsif(gb(kndex, index) = gb(kndex + 1, index)) then
+										gbFree(kndex + 1, index) := '0';
+										gb(kndex, index) := gb(kndex, index) + "0001";
+										gb(kndex + 1, index) := "0000";
+									end if;
+								end loop;
+							end if;
+						end loop;
+					end loop; 
 				elsif(dataBuff = "00011100") then ---A
-					if(Tile_X_Pos - Tile_Size <= X_Min) then
-						Tile_X_Motion <= Tile_X_Step;
-					else
-						Tile_X_Motion <= not(Tile_X_Step) + 1;
-					end if;
-					Tile_Y_Motion <= CONV_STD_LOGIC_VECTOR(0, 10);
+					for index in 0 to 3 loop
+						for jndex in 1 to 3 loop
+							if(gbFree(index, jndex) = '1') then
+								for kndex in (jndex - 1) downto 0 loop
+									if(gbFree(index, kndex) = '0') then
+										gbFree(index, kndex + 1) := '0';
+										gbFree(index, kndex) := '1';
+										gb(index, kndex) := gb(index, kndex + 1);
+										gb(index, kndex+1) := "0000";
+									elsif(gb(index, kndex) = gb(index, kndex + 1)) then
+										gbFree(index, kndex + 1) := '0';
+										
+										gb(index, kndex) := gb(index, kndex) + "0001";
+										gb(index, kndex + 1) := "0000";
+									end if;
+								end loop;
+							end if;
+						end loop;
+					end loop; 
 				elsif(dataBuff = "00011011") then ---S
-					if   (Tile_Y_Pos + Tile_Size >= Y_Max) then
-						Tile_Y_Motion <= not(Tile_Y_Step) + 1;
-					else
-						Tile_Y_Motion <= Tile_Y_Step;
-					end if;
-					Tile_X_Motion <= CONV_STD_LOGIC_VECTOR(0, 10);
+					for index in  0 to 3 loop
+						for jndex in 2 downto 0 loop
+							if(gbFree(jndex, index) = '1') then
+								for kndex in jndex + 1 to 3 loop
+									if(gbFree(kndex, index) = '0') then
+										gbFree(kndex - 1, index) := '0';
+										gbFree(kndex, index) := '1';
+										gb(kndex, index) := gb(kndex-1, index);
+										gb(kndex-1, index) := "0000";
+									elsif(gb(kndex, index) = gb(kndex - 1, index)) then
+										gbFree(kndex - 1, index) := '0';
+										gb(kndex, index) := gb(kndex, index) + "0001";
+										gb(kndex - 1, index) := "0000";
+									end if;
+								end loop;
+							end if;
+						end loop;
+					end loop; 
 				elsif(dataBuff = "00100011") then ---D
-					if(Tile_X_Pos + Tile_Size >= X_Max) then
-						Tile_X_Motion <= not(Tile_X_Step) + 1;
-					else
-						Tile_X_Motion <= Tile_X_Step;
-					end if;
-					Tile_Y_Motion <= CONV_STD_LOGIC_VECTOR(0, 10);
+					for index in 0 to 3 loop
+						for jndex in 2 downto 0 loop
+							if(gbFree(index, jndex) = '1') then
+								for kndex in (jndex + 1) to 3 loop
+									if(gbFree(index, kndex) = '0') then
+										gbFree(index, kndex - 1) := '0';
+										gbFree(index, kndex) := '1';
+										gb(index, kndex) := gb(index, kndex - 1);
+										gb(index, kndex - 1) := "0000";
+									elsif(gb(index, kndex) = gb(index, kndex - 1)) then
+										gbFree(index, kndex - 1) := '0';
+										
+										gb(index, kndex) := gb(index, kndex) + "0001";
+										gb(index, kndex - 1) := "0000";
+									end if;
+								end loop;
+							end if;
+						end loop;
+					end loop; 
 				---else
 				---	Tile_Y_Motion <= Tile_Y_Motion;
 				---	Tile_X_Motion <= Tile_X_Motion;
@@ -233,27 +286,13 @@ Begin
 				dataAck <= '0';
 			else
 				dataAck <= '1';
-				if   (Tile_Y_Pos + Tile_Size >= Y_Max and Tile_Y_Motion = Tile_Y_Step) then 
-					Tile_Y_Motion <= "0000000000"; --2's complement.
-				elsif(Tile_Y_Pos - Tile_Size <= Y_Min and Tile_Y_Motion = not(Tile_Y_Step) + 1) then 
-					Tile_Y_Motion <= "0000000000"; 
-				else
-					Tile_Y_Motion <= Tile_Y_Motion; -- Tile is in the middle
-				end if;
-				if   (Tile_X_Pos + Tile_Size >= X_Max and Tile_X_Motion = Tile_X_Step) then 
-					Tile_X_Motion <= "0000000000"; --2's complement.
-				elsif(Tile_X_Pos - Tile_Size <= X_Min and Tile_X_Motion = not(Tile_X_Step) + 1) then  
-					Tile_X_Motion <= "0000000000";             
-				else
-					Tile_X_Motion <= Tile_X_Motion; -- Tile is in middle
-				end if;
+
 			end if;
 
-			Tile_Y_pos <= Tile_Y_pos + Tile_Y_Motion; -- Update Tile position 
-			Tile_X_pos <= Tile_X_pos + Tile_X_Motion;
 			 
 		 end if;
-  
+  outfree <= gbfree;
+  outSprites <= gb;
   end process Move_Tiles;
 
   --TileX <= Tile_X_Pos;

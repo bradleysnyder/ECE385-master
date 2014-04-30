@@ -350,6 +350,7 @@ architecture Behavioral of Sprites is
 		--reminder to make another process for sending out the other sprites
 		--leave the top 6 blank and bottom 6 blank
 		
+		
 		sprite_2(0)			<="000000000000000000000000000000000000000000000000";
 		sprite_2(1)			<="000000000000000000000000000000000000000000000000";
 		sprite_2(2)			<="000000000000000000000000000000000000000000000000";
@@ -784,52 +785,181 @@ architecture Behavioral of Sprites is
 			variable g2_num : std_logic_vector (9 downto 0) := "0000000000";
 			variable b2_num : std_logic_vector (9 downto 0) := "0000000000";
 			
+			variable x : integer range 0 to 3 := 0;
+			variable y : integer range 0 to 3 := 0;
+			
 			begin
 			--if (reset = '1') then
-				if (outSprites(to_integer(unsigned(yCoord)),to_integer(unsigned(xCoord))) = "0001") then --changed from 0001
-					r_num := "0000000000";
-					g_num := "0000000000";
-					b_num := "0000000000";
+					if(DrawX >= 16 and DrawX <= 116 and DrawY >= 16 and DrawY <= 116) then
+						x := 0;
+						y := 0;
+					elsif(DrawX >= 132 and DrawX <= 232 and DrawY >= 16 and DrawY <= 116) then --ifDrawX is in tile zero output sprite in tile 0
+						x := 1;
+						y := 0;
+					elsif (DrawX >= 248 and DrawX <= 348 and DrawY >= 16 and DrawY <= 116) then
+						x := 2;
+						y := 0;
+					elsif (DrawX >= 364 and DrawX <= 464 and DrawY >= 16 and DrawY <= 116) then
+						x := 3;
+						y := 0;
+					elsif (DrawX >= 16 and DrawX <= 116 and DrawY >= 132 and DrawY <= 232) then
+						x := 0;
+						y := 1;
+					elsif (DrawX >= 132 and DrawX <= 232 and DrawY >= 132 and DrawY <= 232) then
+						x := 1;
+						y := 1;
+					elsif (DrawX >= 248 and DrawX <= 348 and DrawY >= 132 and DrawY <= 232) then
+						x := 2;
+						y := 1;
+					elsif (DrawX >= 364 and DrawX <= 464 and DrawY >= 132 and DrawY <= 232) then
+						x := 3;
+						y := 1;
+					elsif (DrawX >= 16 and DrawX <= 116 and DrawY >= 248 and DrawY <= 348) then
+						x := 0;
+						y := 2;
+					elsif (DrawX >= 132 and DrawX <= 232 and DrawY >= 248 and DrawY <= 348) then
+						x := 1;
+						y := 2;
+					elsif (DrawX >= 248 and DrawX <= 348 and DrawY >= 248 and DrawY <= 348) then
+						x := 2;
+						y := 2;
+					elsif (DrawX >= 364 and DrawX <= 464 and DrawY >= 248 and DrawY <= 348) then
+						x := 3;
+						y := 2;
+					elsif (DrawX >= 16 and DrawX <= 116 and DrawY >= 364 and DrawY <= 464) then
+						x := 0;
+						y := 3;
+					elsif (DrawX >= 132 and DrawX <= 232 and DrawY >= 364 and DrawY <= 464) then
+						x := 1;
+						y := 3;
+					elsif (DrawX >= 248 and DrawX <= 348 and DrawY >= 364 and DrawY <= 464) then
+						x := 2;
+						y := 3;
+					elsif (DrawX >= 364 and DrawX <= 464 and DrawY >= 364 and DrawY <= 464) then
+						x := 3;
+						y := 3;
+					end if;
+					if (outSprites(y,x) = "0001") then --changed from 0001
+						r_num := "0000000000";
+						g_num := "0000000000";
+						b_num := "0000000000";
 					
-					r := "1111111100";
-					g := "1111111100";
-					b := "1111111100";
-					tile_sprite_out <= sprite_2;
-					sprite_num_color <= r_num & g_num & b_num;
+						r := "1111111100";
+						g := "1111111100";
+						b := "1111111100";
+						tile_sprite_out <= sprite_2;
+
+					elsif (outSprites(y,x) = "0010") then --chaned from 0010
+						r_num := "0000000000";
+						g_num := "0000000000";
+						b_num := "0000000000";
+					
+						r := "1111000000"; --0011111110
+						g := "1111000000"; --0011010000
+						b := "1111000000"; --0011000000
+						tile_sprite_out <= sprite_4;
+					
+					elsif (outSprites(y,x) = "0011") then --chaned from 0010
+						r_num := "1111111111";
+						g_num := "1111111111";
+						b_num := "1111111111";
+					
+						r := "1111010000"; --0011111110
+						g := "1010010000"; --0011010000
+						b := "0110000000"; --0011000000
+						tile_sprite_out <= sprite_8;
+					
+					elsif (outSprites(y,x) = "0100") then --chaned from 0010
+						r_num := "1111111111";
+						g_num := "1111111111";
+						b_num := "1111111111";
+					
+						r := "1111010000"; --0011111110
+						g := "0101001000"; --0011010000
+						b := "0011000000"; --0011000000
+						tile_sprite_out <= sprite_16;
+					
+					elsif (outSprites(y,x) = "0101") then --chaned from 0010
+						r_num := "1111111111";
+						g_num := "1111111111";
+						b_num := "1111111111";
+					
+						r := "1111010000"; --0011111110
+						g := "0101001000"; --0011010000
+						b := "0011000000"; --0011000000
+						tile_sprite_out <= sprite_32;
+					
+					elsif (outSprites(y,x) = "0110") then --chaned from 0010
+						r_num := "1111111111";
+						g_num := "1111111111";
+						b_num := "1111111111";
+					
+						r := "1111111111"; --0011111110
+						g := "0000000000"; --0011010000
+						b := "0000000000"; --0011000000
+						tile_sprite_out <= sprite_64;
+					
+					elsif (outSprites(y,x) = "0111") then --chaned from 0010
+						r_num := "1111111111";
+						g_num := "1111111111";
+						b_num := "1111111111";
+					
+						r := "1111010000"; --0011111110
+						g := "1010010000"; --0011010000
+						b := "0110000000"; --0011000000
+						tile_sprite_out <= sprite_128;
+					
+					elsif (outSprites(y,x) = "1000") then --chaned from 0010
+						r_num := "1111111111";
+						g_num := "1111111111";
+						b_num := "1111111111";
+					
+						r := "1111010000"; --0011111110
+						g := "1010010000"; --0011010000
+						b := "0110000000"; --0011000000
+						tile_sprite_out <= sprite_256;
+					
+					elsif (outSprites(y,x) = "1001") then --chaned from 0010
+						r_num := "1111111111";
+						g_num := "1111111111";
+						b_num := "1111111111";
+					
+						r := "1111010000"; --0011111110
+						g := "1010010000"; --0011010000
+						b := "0110000000"; --0011000000
+						tile_sprite_out <= sprite_512;
+					
+					elsif (outSprites(y,x) = "1010") then --chaned from 0010
+						r_num := "1111111111";
+						g_num := "1111111111";
+						b_num := "1111111111";
+					
+						r := "1111010000"; --0011111110
+						g := "1010010000"; --0011010000
+						b := "0110000000"; --0011000000
+						tile_sprite_out <= sprite_1024;
+					
+					elsif (outSprites(y,x) = "1011") then --chaned from 0010
+						r_num := "1111111111";
+						g_num := "1111111111";
+						b_num := "1111111111";
+					
+						r := "1111010000"; --0011111110
+						g := "1010010000"; --0011010000
+						b := "0110000000"; --0011000000
+						tile_sprite_out <= sprite_2048;
+					
+					else
+						r_num := "0000000000";
+						g_num := "0000000000";
+						b_num := "0000000000";
+					
+						r := "0000000000";
+						g := "1000000000";
+						b := "0000000000";
+					end if;
 					sprite_back_color <= r & g & b;
-
-				else
-					r_num := "0000000000";
-					g_num := "0000000000";
-					b_num := "0000000000";
-					
-					r := "0000000000";
-					g := "1000000000";
-					b := "0000000000";
-				end if;
-				if (outSprites(to_integer(unsigned(y2Coord)),to_integer(unsigned(x2Coord))) = "0010") then --chaned from 0010
-					r2_num := "0000000000";
-					g2_num := "0000000000";
-					b2_num := "0000000000";
-					
-					r2 := "1111000000"; --0011111110
-					g2 := "1111000000"; --0011010000
-					b2 := "1111000000"; --0011000000
-					tile_sprite_out2 <= sprite_4;
-					sprite_back_color2 <= r2 & g2 & b2;
-					sprite_num_color2 <= r2_num & g2_num & b2_num;
-
-				else
-					r_num := "0000000000";
-					g_num := "0000000000";
-					b_num := "0000000000";
-					
-					r := "0000000000";
-					g := "1000000000";
-					b := "0000000000";
-				end if;
-			
-			
+					sprite_num_color <= r_num & g_num & b_num;
 			--sprite_back_color2 <= r2 & g2 & b2;
 			--sprite_num_color2 <= r2_num & g2_num & b2_num;
 			--sprite_num_color <= r_num & g_num & b_num;

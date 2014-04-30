@@ -53,8 +53,8 @@ begin
   RGB_Display : process (Tile_on, DrawX, DrawY, score_sprite)
     --variable GreenVar, BlueVar : std_logic_vector(22 downto 0);
 	--want to place bamegoard 80-560, 80-560..maybe not
-	type freeSpaces is array(0 to 3, 0 to 3) of std_logic;
-	variable gbFree : freeSpaces := (('0', '0', '0', '0'), ('0', '0', '0', '0'), ('0', '0', '0', '0'), ('0', '0', '0', '0')); --keeps track of free spaces
+	--type freeSpaces is array(0 to 3, 0 to 3) of std_logic;
+	--variable gbFree : freeSpaces := (('0', '0', '0', '0'), ('0', '0', '0', '0'), ('0', '0', '0', '0'), ('0', '0', '0', '0')); --keeps track of free spaces
 	variable temp : std_logic;
 	--variable xDraw : integer := Draw_rs_x;
 	--variable yDraw : integer := Draw_rs_y;
@@ -67,7 +67,7 @@ begin
 			--for jndex in 0 to 3 loop
 				--exit when count = 16;
 				--if ((DrawX >= 16 + (jndex * 116)) and (DrawX <=116 + (jndex * 116)) and (DrawY >= 16 + (index * 116)) and (DrawY <=116 + (index * 116))) then-- and gbFree(index, jndex) = 0) then
-				if (DrawX >= 16 and DrawX <= 116 and DrawY >= 16 and DrawY <= 116 and gbFree(0,0) = '0') then
+				if (DrawX >= 16 and DrawX <= 116 and DrawY >= 16 and DrawY <= 116) then
 					if (outFree(0, 0) = '1') then
 						if (DrawX > 42 and DrawX <= 90 and DrawY > 50 and DrawY <= 82) then --changed both to > from >=
 							if (tile_sprite(to_integer(unsigned(DrawY - 50)))(to_integer(unsigned(90 - DrawX))) = '1') then --might need minus outside the unsigned
@@ -93,84 +93,363 @@ begin
 				--all static checks
 				elsif (DrawX >= 132 and DrawX <= 232 and DrawY >= 16 and DrawY <= 116) then-- and gbFree(1,0) = 0) then
 					if (outFree(0, 1) = '1') then
-						if (outSprites(to_integer(unsigned(y2Coord)),to_integer(unsigned(x2Coord))) = "0010") then
+						--if (outSprites(0,1) = "0010") then
 							if (DrawX >= 158 and DrawX <= 206 and DrawY >= 50 and DrawY <= 82) then
-								if (tile_sprite2(to_integer(unsigned(DrawY - 50)))(to_integer(unsigned(206 - DrawX))) = '1') then --might need minus outside the unsigned
-									Red <= sprite_num_color2(29 downto 20);
-									Green <= sprite_num_color2(19 downto 10);
-									Blue <= sprite_num_color2(9 downto 0);
+								if (tile_sprite(to_integer(unsigned(DrawY - 50)))(to_integer(unsigned(206 - DrawX))) = '1') then --might need minus outside the unsigned
+									Red <= sprite_num_color(29 downto 20);
+									Green <= sprite_num_color(19 downto 10);
+									Blue <= sprite_num_color(9 downto 0);
 								else
-									Red <= sprite_back_color2(29 downto 20);
-									Green <= sprite_back_color2(19 downto 10);
-									Blue <= sprite_back_color2(9 downto 0);
+									Red <= sprite_back_color(29 downto 20);
+									Green <= sprite_back_color(19 downto 10);
+									Blue <= sprite_back_color(9 downto 0);
 								end if;
 							else
-								Red <= sprite_back_color2(29 downto 20);
-								Green <= sprite_back_color2(19 downto 10);
-								Blue <= sprite_back_color2(9 downto 0);
+								Red <= sprite_back_color(29 downto 20);
+								Green <= sprite_back_color(19 downto 10);
+								Blue <= sprite_back_color(9 downto 0);
 							end if;
-						end if;
+						--end if;
 					else
 						Red <= "1100000000";
 						Green <= "1100000000";
 						Blue <= "1100000000";
 					end if;
 				elsif (DrawX >= 248 and DrawX <= 348 and DrawY >= 16 and DrawY <= 116) then -- and gbFree(2,0) = 0) then
-					Red <= "1100000000";
-					Green <= "1100000000";
-					Blue <= "1100000000";
+					if (outFree(0, 2) = '1') then
+						--if (outSprites(0,1) = "0010") then
+							if (DrawX >= 274 and DrawX <= 322 and DrawY >= 50 and DrawY <= 82) then
+								if (tile_sprite(to_integer(unsigned(DrawY - 50)))(to_integer(unsigned(322 - DrawX))) = '1') then --might need minus outside the unsigned
+									Red <= sprite_num_color(29 downto 20);
+									Green <= sprite_num_color(19 downto 10);
+									Blue <= sprite_num_color(9 downto 0);
+								else
+									Red <= sprite_back_color(29 downto 20);
+									Green <= sprite_back_color(19 downto 10);
+									Blue <= sprite_back_color(9 downto 0);
+								end if;
+							else
+								Red <= sprite_back_color(29 downto 20);
+								Green <= sprite_back_color(19 downto 10);
+								Blue <= sprite_back_color(9 downto 0);
+							end if;
+						--end if;
+					else
+						Red <= "1100000000";
+						Green <= "1100000000";
+						Blue <= "1100000000";
+					end if;
 				elsif (DrawX >= 364 and DrawX <= 464 and DrawY >= 16 and DrawY <= 116) then-- and gbFree(3,0) = 0) then
-					Red <= "1100000000";
-					Green <= "1100000000";
-					Blue <= "1100000000";
+					if (outFree(0, 3) = '1') then
+						--if (outSprites(0,1) = "0010") then
+							if (DrawX >= 390 and DrawX <= 438 and DrawY >= 50 and DrawY <= 82) then
+								if (tile_sprite(to_integer(unsigned(DrawY - 50)))(to_integer(unsigned(438 - DrawX))) = '1') then --might need minus outside the unsigned
+									Red <= sprite_num_color(29 downto 20);
+									Green <= sprite_num_color(19 downto 10);
+									Blue <= sprite_num_color(9 downto 0);
+								else
+									Red <= sprite_back_color(29 downto 20);
+									Green <= sprite_back_color(19 downto 10);
+									Blue <= sprite_back_color(9 downto 0);
+								end if;
+							else
+								Red <= sprite_back_color(29 downto 20);
+								Green <= sprite_back_color(19 downto 10);
+								Blue <= sprite_back_color(9 downto 0);
+							end if;
+						--end if;
+					else
+						Red <= "1100000000";
+						Green <= "1100000000";
+						Blue <= "1100000000";
+					end if;
 				elsif (DrawX >= 16 and DrawX <= 116 and DrawY >= 132 and DrawY <= 232) then -- and gbFree(0,1) = 0) then
-					Red <= "1100000000";
-					Green <= "1100000000";
-					Blue <= "1100000000";
+					if (outFree(1, 0) = '1') then
+						if (DrawX > 42 and DrawX <= 90 and DrawY > 166 and DrawY <= 198) then --changed both to > from >=
+							if (tile_sprite(to_integer(unsigned(DrawY - 166)))(to_integer(unsigned(90 - DrawX))) = '1') then --might need minus outside the unsigned
+								Red <= sprite_num_color(29 downto 20);
+								Green <= sprite_num_color(19 downto 10);
+								Blue <= sprite_num_color(9 downto 0);
+							else
+								Red <= sprite_back_color(29 downto 20);
+								Green <= sprite_back_color(19 downto 10);
+								Blue <= sprite_back_color(9 downto 0);
+							end if;
+						else
+							Red <= sprite_back_color(29 downto 20);
+							Green <= sprite_back_color(19 downto 10);
+							Blue <= sprite_back_color(9 downto 0);
+						end if;
+					
+					else
+						Red <= "1100000000"; --standard gray
+						Green <= "1100000000";
+						Blue <= "1100000000";
+					end if;
 				elsif (DrawX >= 132 and DrawX <= 232 and DrawY >= 132 and DrawY <= 232) then -- and gbFree(1,1) = 0) then
-					Red <= "1100000000";
-					Green <= "1100000000";
-					Blue <= "1100000000";
+					if (outFree(1, 1) = '1') then
+						--if (outSprites(0,1) = "0010") then
+							if (DrawX >= 158 and DrawX <= 206 and DrawY > 166 and DrawY <= 198) then
+								if (tile_sprite(to_integer(unsigned(DrawY - 166)))(to_integer(unsigned(206 - DrawX))) = '1') then --might need minus outside the unsigned
+									Red <= sprite_num_color(29 downto 20);
+									Green <= sprite_num_color(19 downto 10);
+									Blue <= sprite_num_color(9 downto 0);
+								else
+									Red <= sprite_back_color(29 downto 20);
+									Green <= sprite_back_color(19 downto 10);
+									Blue <= sprite_back_color(9 downto 0);
+								end if;
+							else
+								Red <= sprite_back_color(29 downto 20);
+								Green <= sprite_back_color(19 downto 10);
+								Blue <= sprite_back_color(9 downto 0);
+							end if;
+						--end if;
+					else
+						Red <= "1100000000";
+						Green <= "1100000000";
+						Blue <= "1100000000";
+					end if;
 				elsif (DrawX >= 248 and DrawX <= 348 and DrawY >= 132 and DrawY <= 232) then -- and gbFree(2,1) = 0) then
-					Red <= "1100000000";
-					Green <= "1100000000";
-					Blue <= "1100000000";
+					if (outFree(1, 2) = '1') then
+						--if (outSprites(0,1) = "0010") then
+							if (DrawX >= 274 and DrawX <= 322 and DrawY > 166 and DrawY <= 198) then
+								if (tile_sprite(to_integer(unsigned(DrawY - 166)))(to_integer(unsigned(322 - DrawX))) = '1') then --might need minus outside the unsigned
+									Red <= sprite_num_color(29 downto 20);
+									Green <= sprite_num_color(19 downto 10);
+									Blue <= sprite_num_color(9 downto 0);
+								else
+									Red <= sprite_back_color(29 downto 20);
+									Green <= sprite_back_color(19 downto 10);
+									Blue <= sprite_back_color(9 downto 0);
+								end if;
+							else
+								Red <= sprite_back_color(29 downto 20);
+								Green <= sprite_back_color(19 downto 10);
+								Blue <= sprite_back_color(9 downto 0);
+							end if;
+						--end if;
+					else
+						Red <= "1100000000";
+						Green <= "1100000000";
+						Blue <= "1100000000";
+					end if;
 				elsif (DrawX >= 364 and DrawX <= 464 and DrawY >= 132 and DrawY <= 232) then -- and gbFree(3,1) = 0) then
-					Red <= "1100000000";
-					Green <= "1100000000";
-					Blue <= "1100000000";
+					if (outFree(1, 3) = '1') then
+						--if (outSprites(0,1) = "0010") then
+							if (DrawX >= 390 and DrawX <= 438 and DrawY > 166 and DrawY <= 198) then
+								if (tile_sprite(to_integer(unsigned(DrawY - 166)))(to_integer(unsigned(438 - DrawX))) = '1') then --might need minus outside the unsigned
+									Red <= sprite_num_color(29 downto 20);
+									Green <= sprite_num_color(19 downto 10);
+									Blue <= sprite_num_color(9 downto 0);
+								else
+									Red <= sprite_back_color(29 downto 20);
+									Green <= sprite_back_color(19 downto 10);
+									Blue <= sprite_back_color(9 downto 0);
+								end if;
+							else
+								Red <= sprite_back_color(29 downto 20);
+								Green <= sprite_back_color(19 downto 10);
+								Blue <= sprite_back_color(9 downto 0);
+							end if;
+						--end if;
+					else
+						Red <= "1100000000";
+						Green <= "1100000000";
+						Blue <= "1100000000";
+					end if;
 				elsif (DrawX >= 16 and DrawX <= 116 and DrawY >= 248 and DrawY <= 348) then -- and gbFree(0,2) = 0) then
-					Red <= "1100000000";
-					Green <= "1100000000";
-					Blue <= "1100000000";
+					if (outFree(2, 0) = '1') then
+						--if (outSprites(0,1) = "0010") then
+							if (DrawX > 42 and DrawX <= 90 and DrawY > 282 and DrawY <= 314) then
+								if (tile_sprite(to_integer(unsigned(DrawY - 282)))(to_integer(unsigned(90 - DrawX))) = '1') then --might need minus outside the unsigned
+									Red <= sprite_num_color(29 downto 20);
+									Green <= sprite_num_color(19 downto 10);
+									Blue <= sprite_num_color(9 downto 0);
+								else
+									Red <= sprite_back_color(29 downto 20);
+									Green <= sprite_back_color(19 downto 10);
+									Blue <= sprite_back_color(9 downto 0);
+								end if;
+							else
+								Red <= sprite_back_color(29 downto 20);
+								Green <= sprite_back_color(19 downto 10);
+								Blue <= sprite_back_color(9 downto 0);
+							end if;
+						--end if;
+					else
+						Red <= "1100000000";
+						Green <= "1100000000";
+						Blue <= "1100000000";
+					end if;
 				elsif (DrawX >= 132 and DrawX <= 232 and DrawY >= 248 and DrawY <= 348) then -- and gbFree(1, 2) = 0) then
-					Red <= "1100000000";
-					Green <= "1100000000";
-					Blue <= "1100000000";
+					if (outFree(2, 1) = '1') then
+						--if (outSprites(0,1) = "0010") then
+							if (DrawX >= 158 and DrawX <= 206  and DrawY > 282 and DrawY <= 314) then
+								if (tile_sprite(to_integer(unsigned(DrawY - 282)))(to_integer(unsigned(206 - DrawX))) = '1') then --might need minus outside the unsigned
+									Red <= sprite_num_color(29 downto 20);
+									Green <= sprite_num_color(19 downto 10);
+									Blue <= sprite_num_color(9 downto 0);
+								else
+									Red <= sprite_back_color(29 downto 20);
+									Green <= sprite_back_color(19 downto 10);
+									Blue <= sprite_back_color(9 downto 0);
+								end if;
+							else
+								Red <= sprite_back_color(29 downto 20);
+								Green <= sprite_back_color(19 downto 10);
+								Blue <= sprite_back_color(9 downto 0);
+							end if;
+						--end if;
+					else
+						Red <= "1100000000";
+						Green <= "1100000000";
+						Blue <= "1100000000";
+					end if;
 				elsif (DrawX >= 248 and DrawX <= 348 and DrawY >= 248 and DrawY <= 348) then -- and gbFree(2, 2) = 0) then
-					Red <= "1100000000";
-					Green <= "1100000000";
-					Blue <= "1100000000";
+					if (outFree(2, 2) = '1') then
+						--if (outSprites(0,1) = "0010") then
+							if (DrawX >= 274 and DrawX <= 322 and DrawY > 282 and DrawY <= 314) then
+								if (tile_sprite(to_integer(unsigned(DrawY - 282)))(to_integer(unsigned(322 - DrawX))) = '1') then --might need minus outside the unsigned
+									Red <= sprite_num_color(29 downto 20);
+									Green <= sprite_num_color(19 downto 10);
+									Blue <= sprite_num_color(9 downto 0);
+								else
+									Red <= sprite_back_color(29 downto 20);
+									Green <= sprite_back_color(19 downto 10);
+									Blue <= sprite_back_color(9 downto 0);
+								end if;
+							else
+								Red <= sprite_back_color(29 downto 20);
+								Green <= sprite_back_color(19 downto 10);
+								Blue <= sprite_back_color(9 downto 0);
+							end if;
+						--end if;
+					else
+						Red <= "1100000000";
+						Green <= "1100000000";
+						Blue <= "1100000000";
+					end if;
 				elsif (DrawX >= 364 and DrawX <= 464 and DrawY >= 248 and DrawY <= 348) then -- and gbFree(2, 3) = 0) then
-					Red <= "1100000000";
-					Green <= "1100000000";
-					Blue <= "1100000000";
+					if (outFree(2, 3) = '1') then
+						--if (outSprites(0,1) = "0010") then
+							if (DrawX >= 390 and DrawX <= 438 and DrawY > 282 and DrawY <= 314) then
+								if (tile_sprite(to_integer(unsigned(DrawY - 282)))(to_integer(unsigned(438 - DrawX))) = '1') then --might need minus outside the unsigned
+									Red <= sprite_num_color(29 downto 20);
+									Green <= sprite_num_color(19 downto 10);
+									Blue <= sprite_num_color(9 downto 0);
+								else
+									Red <= sprite_back_color(29 downto 20);
+									Green <= sprite_back_color(19 downto 10);
+									Blue <= sprite_back_color(9 downto 0);
+								end if;
+							else
+								Red <= sprite_back_color(29 downto 20);
+								Green <= sprite_back_color(19 downto 10);
+								Blue <= sprite_back_color(9 downto 0);
+							end if;
+						--end if;
+					else
+						Red <= "1100000000";
+						Green <= "1100000000";
+						Blue <= "1100000000";
+					end if;
 				elsif (DrawX >= 16 and DrawX <= 116 and DrawY >= 364 and DrawY <= 464) then -- and gbFree(3,0) = 0) then
-					Red <= "1100000000";
-					Green <= "1100000000";
-					Blue <= "1100000000";
+					if (outFree(3, 0) = '1') then
+						--if (outSprites(0,1) = "0010") then
+							if (DrawX > 42 and DrawX <= 90 and DrawY > 398 and DrawY <= 430) then
+								if (tile_sprite(to_integer(unsigned(DrawY - 398)))(to_integer(unsigned(90 - DrawX))) = '1') then --might need minus outside the unsigned
+									Red <= sprite_num_color(29 downto 20);
+									Green <= sprite_num_color(19 downto 10);
+									Blue <= sprite_num_color(9 downto 0);
+								else
+									Red <= sprite_back_color(29 downto 20);
+									Green <= sprite_back_color(19 downto 10);
+									Blue <= sprite_back_color(9 downto 0);
+								end if;
+							else
+								Red <= sprite_back_color(29 downto 20);
+								Green <= sprite_back_color(19 downto 10);
+								Blue <= sprite_back_color(9 downto 0);
+							end if;
+						--end if;
+					else
+						Red <= "1100000000";
+						Green <= "1100000000";
+						Blue <= "1100000000";
+					end if;
 				elsif (DrawX >= 132 and DrawX <= 232 and DrawY >= 364 and DrawY <= 464) then -- and gbFree(3, 1) = 0) then
-					Red <= "1100000000";
-					Green <= "1100000000";
-					Blue <= "1100000000";
+					if (outFree(3, 1) = '1') then
+						--if (outSprites(0,1) = "0010") then
+							if (DrawX >= 158 and DrawX <= 206  and DrawY > 398 and DrawY <= 430) then
+								if (tile_sprite(to_integer(unsigned(DrawY - 398)))(to_integer(unsigned(206 - DrawX))) = '1') then --might need minus outside the unsigned
+									Red <= sprite_num_color(29 downto 20);
+									Green <= sprite_num_color(19 downto 10);
+									Blue <= sprite_num_color(9 downto 0);
+								else
+									Red <= sprite_back_color(29 downto 20);
+									Green <= sprite_back_color(19 downto 10);
+									Blue <= sprite_back_color(9 downto 0);
+								end if;
+							else
+								Red <= sprite_back_color(29 downto 20);
+								Green <= sprite_back_color(19 downto 10);
+								Blue <= sprite_back_color(9 downto 0);
+							end if;
+						--end if;
+					else
+						Red <= "1100000000";
+						Green <= "1100000000";
+						Blue <= "1100000000";
+					end if;
 				elsif (DrawX >= 248 and DrawX <= 348 and DrawY >= 364 and DrawY <= 464) then -- and gbFree(3, 2) = 0) then
-					Red <= "1100000000";
-					Green <= "1100000000";
-					Blue <= "1100000000";
+					if (outFree(3, 2) = '1') then
+						--if (outSprites(0,1) = "0010") then
+							if (DrawX >= 274 and DrawX <= 322 and DrawY > 398 and DrawY <= 430) then
+								if (tile_sprite(to_integer(unsigned(DrawY - 398)))(to_integer(unsigned(322 - DrawX))) = '1') then --might need minus outside the unsigned
+									Red <= sprite_num_color(29 downto 20);
+									Green <= sprite_num_color(19 downto 10);
+									Blue <= sprite_num_color(9 downto 0);
+								else
+									Red <= sprite_back_color(29 downto 20);
+									Green <= sprite_back_color(19 downto 10);
+									Blue <= sprite_back_color(9 downto 0);
+								end if;
+							else
+								Red <= sprite_back_color(29 downto 20);
+								Green <= sprite_back_color(19 downto 10);
+								Blue <= sprite_back_color(9 downto 0);
+							end if;
+						--end if;
+					else
+						Red <= "1100000000";
+						Green <= "1100000000";
+						Blue <= "1100000000";
+					end if;
 				elsif (DrawX >= 364 and DrawX <= 464 and DrawY >= 364 and DrawY <= 464) then -- and gbFree(3, 3) = 0) then
-					Red <= "1100000000";
-					Green <= "1100000000";
-					Blue <= "1100000000";
+					if (outFree(3, 3) = '1') then
+						--if (outSprites(0,1) = "0010") then
+							if (DrawX >= 390 and DrawX <= 438 and DrawY > 398 and DrawY <= 430) then
+								if (tile_sprite(to_integer(unsigned(DrawY - 398)))(to_integer(unsigned(438 - DrawX))) = '1') then --might need minus outside the unsigned
+									Red <= sprite_num_color(29 downto 20);
+									Green <= sprite_num_color(19 downto 10);
+									Blue <= sprite_num_color(9 downto 0);
+								else
+									Red <= sprite_back_color(29 downto 20);
+									Green <= sprite_back_color(19 downto 10);
+									Blue <= sprite_back_color(9 downto 0);
+								end if;
+							else
+								Red <= sprite_back_color(29 downto 20);
+								Green <= sprite_back_color(19 downto 10);
+								Blue <= sprite_back_color(9 downto 0);
+							end if;
+						--end if;
+					else
+						Red <= "1100000000";
+						Green <= "1100000000";
+						Blue <= "1100000000";
+					end if;
 				else
 					Red <= "1000010000";
 					Green <= "1000010000";
