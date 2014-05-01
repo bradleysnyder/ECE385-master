@@ -36,7 +36,7 @@ entity randGen is
 end randGen;
 
 architecture arch of randGen is
-	signal r : std_logic_vector(7 downto 0);	-- random number shift register
+	signal r : std_logic_vector(7 downto 0) := "01000100";	-- random number shift register
 	signal new_bit : std_logic;		-- feedback bit into LSb of LFSR
 begin
 	-- use the length parameter to select the bits in the shift register

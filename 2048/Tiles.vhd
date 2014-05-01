@@ -95,10 +95,10 @@ Begin
 	variable gb : sprite_location := (("0000", "0000", "0000", "0000"), ("0000", "0000", "0000", "0000"), ("0000", "0000", "0000", "0000"), ("0000", "0000", "0000", "0000"));
 	variable gbFree : game_board_free_spaces := (('0', '0', '0', '0'), ('0', '0', '0', '0'), ('0', '0', '0', '0'), ('0', '0', '0', '0'));
 	variable emptyBoard : std_logic := '1';
-	variable score : integer range 0 to 99999 := 11;
+	variable score : integer range 0 to 99999 := 0;
 	variable checkx, checky : integer range 0 to 3 := 2;
 	variable values : std_logic_vector(3 downto 0);
-
+	variable count : integer;
 	
 	procedure newTile is
 		variable found : boolean := false;
@@ -229,30 +229,38 @@ Begin
 			--outSprites(0, 0) <= "0001";
 			score := 0;
 			emptyBoard := '1';
-
-			--outFree(0,1) <= '1';
-			--outSprites(0, 1) <= "0010";	--set up for two sprites on top
-
-		 elsif(emptyBoard = '1') then
 			for index in 0 to 3 loop
 				for jndex in 0 to 3 loop
 					gbFree(index, jndex) := '0';
 					gb(index, jndex) := "0000";
 				end loop;
 			end loop;
-			emptyBoard := '0';
-			newT <= '1';
-		 elsif(newT = '1') then
-			newtile;
-			if(gbFree(checky, checkx) = '1') then
-				newT <= '1';
-			else
-				gbFree(checky, checkx) := '1';
-				gb(checky, checkx) := values;
-				newT <= '0';
-			end if;
+			--outFree(0,1) <= '1';
+			--outSprites(0, 1) <= "0010";	--set up for two sprites on top
+
+		 
 		 elsif(rising_edge(frame_clk)) then
-			if(dataReady = '1') then
+			if(emptyBoard = '1') then
+				for index in 0 to 3 loop
+					for jndex in 0 to 3 loop
+						gbFree(index, jndex) := '0';
+						gb(index, jndex) := "0000";
+					end loop;
+				end loop;
+				emptyBoard := '0';
+				newT <= '1';
+			elsif(newT = '1') then
+				newtile;
+				if(gbFree(checky, checkx) = '0') then
+					gbFree(checky, checkx) := '1';
+					gb(checky, checkx) := values;
+					newT <= '0';
+				else
+					newT <= '1';
+				end if;
+				count := 0;
+			elsif(dataReady = '1') then
+
 				if(dataBuff = "00011101") then ---W
 					for index in  0 to 3 loop
 						for jndex in 1 to 3 loop
@@ -263,13 +271,13 @@ Begin
 										gbFree(kndex, index) := '1';
 										gb(kndex, index) := gb(kndex + 1, index);
 										gb(kndex + 1, index) := "0000";
-										newT <= '1';
+										count := count + 1;
 									elsif(gb(kndex, index) = gb(kndex + 1, index)) then
 										gbFree(kndex + 1, index) := '0';
 										gb(kndex, index) := gb(kndex, index) + "0001";
 										gb(kndex + 1, index) := "0000";
 										score := score + scoreLookUp(to_integer(unsigned(gb(kndex, index))));
-										newT <= '1';
+										count := count + 1;
 									end if;
 								end loop;
 							end if;
@@ -286,13 +294,13 @@ Begin
 										gbFree(index, kndex) := '1';
 										gb(index, kndex) := gb(index, kndex + 1);
 										gb(index, kndex+1) := "0000";
-										newT <= '1';
+										count := count + 1;
 									elsif(gb(index, kndex) = gb(index, kndex + 1)) then
 										gbFree(index, kndex + 1) := '0';
 										gb(index, kndex) := gb(index, kndex) + "0001";
 										gb(index, kndex + 1) := "0000";
 										score := score + scoreLookUp(to_integer(unsigned(gb(index, kndex))));
-										newT <= '1';
+										count := count + 1;
 									end if;
 								end loop;
 							end if;
@@ -308,13 +316,13 @@ Begin
 										gbFree(kndex, index) := '1';
 										gb(kndex, index) := gb(kndex-1, index);
 										gb(kndex-1, index) := "0000";
-										newT <= '1';
+										count := count + 1;
 									elsif(gb(kndex, index) = gb(kndex - 1, index)) then
 										gbFree(kndex - 1, index) := '0';
 										gb(kndex, index) := gb(kndex, index) + "0001";
 										gb(kndex - 1, index) := "0000";
 										score := score + scoreLookUp(to_integer(unsigned(gb(kndex, index))));
-										newT <= '1';
+										count := count + 1;
 									end if;
 								end loop;
 							end if;
@@ -330,13 +338,13 @@ Begin
 										gbFree(index, kndex) := '1';
 										gb(index, kndex) := gb(index, kndex - 1);
 										gb(index, kndex - 1) := "0000";
-										newT <= '1';
+										count := count + 1;
 									elsif(gb(index, kndex) = gb(index, kndex - 1)) then
 										gbFree(index, kndex - 1) := '0';
 										gb(index, kndex) := gb(index, kndex) + "0001";
 										gb(index, kndex - 1) := "0000";
 										score := score + scoreLookUp(to_integer(unsigned(gb(index, kndex))));
-										newT <= '1';
+										count := count + 1;
 									end if;
 								end loop;
 							end if;
@@ -351,34 +359,11 @@ Begin
 				dataAck <= '1';
 
 			end if;
-			--if(scoreup = '1') then
-			--	if(scorenum = "0010") then
-			--		score := score + 4;
-			--	elsif(scorenum = "0011") then
-			--		score := score + 8;
-			--	elsif(scorenum = "0100") then
-			--		score := score + 16;
-			--	elsif(scorenum = "0101") then
-			--		score := score + 32;
-			--	elsif(scorenum = "0110") then
-			--		score := score + 64;
-			--	elsif(scorenum = "0111") then
-			--		score := score + 128;
-			--	elsif(scorenum = "1000") then
-			--		score := score + 256;
-			--	elsif(scorenum = "1001") then
-			--		score := score + 512;
-			--	elsif(scorenum = "1010") then
-			--		score := score + 1024;
-			--	elsif(scorenum = "1011") then
-			--		score := score + 2048;
-			--	else
-			--		score := 1;
-			--	end if;
-			--else
-			--	score := score;
-			--end if;
+		 		if(count > 0) then
+					newT <= '1';
+				end if;
 		 end if;
+
   outfree <= gbfree;
   outSprites <= gb;
   scoreOut(0) <= score mod 10;
