@@ -17,7 +17,7 @@ type cntrl_state is (idle, w, a, s, d, wEnd, aEnd, sEnd, dEnd);
 signal state, next_state : cntrl_state;
 signal key : std_logic := '0';
 begin
-	control_reg : process(reset, clk, keyPress)
+	control_reg : process(reset, clk, keyPress, key)
 
 	begin
 		if(Reset = '1') then 

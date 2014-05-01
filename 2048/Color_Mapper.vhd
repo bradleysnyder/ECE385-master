@@ -20,15 +20,10 @@ entity Color_Mapper is
           DrawY : in std_logic_vector(9 downto 0);
 			 score_sprite : in array_16x16;
 			 tile_sprite : in img;
-			 tile_sprite2 : in img;
 			 sprite_num_color : in std_logic_vector (29 downto 0);
 			 sprite_back_color : in std_logic_vector (29 downto 0);
-			 sprite_num_color2 : in std_logic_vector (29 downto 0);
-			 sprite_back_color2 : in std_logic_vector (29 downto 0);
 			 outFree : in game_board_free_spaces;
 			 outSprites : in sprite_location;
-			 x2Coord : in std_logic_vector (1 downto 0);
-			 y2Coord : in std_logic_vector (1 downto 0);
 			 --Draw_rs_x : in std_logic_vector(3 downto 0);
 			 --Draw_rs_y : in std_logic_vector(3 downto 0);
 			 --clk : in std_logic;
@@ -41,7 +36,7 @@ end Color_Mapper;
 
 architecture Behavioral of Color_Mapper is
 
-signal Tile_on : std_logic := '0';
+
 --signal Draw_rs_x : integer := 0;
 --signal Draw_rs_y : integer := 0;
 --signal count : std_logic_vector (3 downto 0) := "0000";
@@ -50,7 +45,7 @@ begin
 
 --if drawX and drawY within range, draw moving sprites, otherwise, draw what's there..?
 
-  RGB_Display : process (Tile_on, DrawX, DrawY, score_sprite)
+  RGB_Display : process (DrawX, DrawY, score_sprite, sprite_back_color, outFree, tile_sprite, sprite_num_color)
     --variable GreenVar, BlueVar : std_logic_vector(22 downto 0);
 	--want to place bamegoard 80-560, 80-560..maybe not
 	--type freeSpaces is array(0 to 3, 0 to 3) of std_logic;

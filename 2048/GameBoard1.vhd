@@ -52,20 +52,15 @@ component Tiles is
     Port ( Reset : in std_logic;
 			  frame_clk : in std_logic;
 		     newKey : in std_logic;
-			  DrawX : in std_logic_vector(9 downto 0);
-			  DrawY : in std_logic_vector(9 downto 0);
 			  --need some Tiles stuff
 			  --taken : in gbBlocks;
 			  --sprite : in sprite_set;
 			  outFree : out game_board_free_spaces; 
 			  outSprites : out sprite_location;
-			  xCoord : out std_logic_vector(1 downto 0);
-			  yCoord : out std_logic_vector (1 downto 0);
-			  x2Coord : out std_logic_vector(1 downto 0);
-			  y2Coord : out std_logic_vector (1 downto 0);
 			  --outboard : out array(0 to 3, 0 to 3) of std_logic_vector(10 downto 0);
 		     keyCode : in std_logic_vector(7 downto 0);
-			  keyAck : out std_logic);
+			  keyAck : out std_logic;
+			  scoreOut : out scoreBoard);
 end component;
 
 component vga_controllerz is
@@ -86,15 +81,10 @@ component Color_Mapper is
            DrawY : in std_logic_vector(9 downto 0);
 			  score_sprite : in array_16x16;
 			  tile_sprite : in img;
-			  tile_sprite2 : in img;
-			  sprite_num_color2 : in std_logic_vector (29 downto 0);
-			  sprite_back_color2 : in std_logic_vector (29 downto 0);
 			  sprite_num_color : in std_logic_vector (29 downto 0);
 			  sprite_back_color : in std_logic_vector (29 downto 0);
 			  outFree : in game_board_free_spaces;
 			  outSprites : in sprite_location;
-			  x2Coord : in std_logic_vector(1 downto 0);
-			  y2Coord : in std_logic_vector (1 downto 0);
 			  --Draw_rs_x : in std_logic_vector(3 downto 0);
 			  --Draw_rs_y : in std_logic_vector(3 downto 0);
 			  --clk : in std_logic;
@@ -112,15 +102,10 @@ component Sprites is
 				DrawY : in std_logic_vector(9 downto 0);
 				outFree : in game_board_free_spaces;
 				outSprites: in sprite_location;
-				xCoord : out std_logic_vector(1 downto 0);
-			   yCoord : out std_logic_vector (1 downto 0);
-				x2Coord : out std_logic_vector(1 downto 0);
-			   y2Coord : out std_logic_vector (1 downto 0);
+				scoreIn : in scoreBoard;
 				--sprite_img : out img;
 				sprite_num_color : out std_logic_vector (29 downto 0);
 				sprite_back_color : out std_logic_vector (29 downto 0);
-				sprite_num_color2 : out std_logic_vector (29 downto 0);
-			   sprite_back_color2 : out std_logic_vector (29 downto 0);
 				tile_sprite_out : out img;
 				score_sprite_out : out array_16x16
 				);
@@ -129,6 +114,7 @@ end component;
 signal Reset_h, vsSig : std_logic;
 signal DrawXSig, DrawYSig : std_logic_vector(9 downto 0);
 signal keyIn : std_logic_vector(7 downto 0);
+signal score : scoreBoard;
 --signal regular_sprite : array_16x16;
 --variable regular_sprite : array_16x16;
 
@@ -179,40 +165,17 @@ signal tile_sprite : img := ( "000000000000000000000000000000000000000000000000"
 										"000000000000000000000000000000000000000000000000", "000000000000000000000000000000000000000000000000");
 										
 										
-signal tile_sprite2 : img := ( "000000000000000000000000000000000000000000000000", "000000000000000000000000000000000000000000000000",
-										"000000000000000000000000000000000000000000000000", "000000000000000000000000000000000000000000000000",
-										"000000000000000000000000000000000000000000000000", "000000000000000000000000000000000000000000000000",
-										"000000000000000000000000000000000000000000000000", "000000000000000000000000000000000000000000000000",
-										"000000000000000000000000000000000000000000000000", "000000000000000000000000000000000000000000000000",
-										"000000000000000000000000000000000000000000000000", "000000000000000000000000000000000000000000000000",
-										"000000000000000000000000000000000000000000000000", "000000000000000000000000000000000000000000000000",
-										"000000000000000000000000000000000000000000000000", "000000000000000000000000000000000000000000000000",
-										"000000000000000000000000000000000000000000000000", "000000000000000000000000000000000000000000000000",
-										"000000000000000000000000000000000000000000000000", "000000000000000000000000000000000000000000000000",
-										"000000000000000000000000000000000000000000000000", "000000000000000000000000000000000000000000000000",
-										"000000000000000000000000000000000000000000000000", "000000000000000000000000000000000000000000000000",
-										"000000000000000000000000000000000000000000000000", "000000000000000000000000000000000000000000000000",
-										"000000000000000000000000000000000000000000000000", "000000000000000000000000000000000000000000000000",
-										"000000000000000000000000000000000000000000000000", "000000000000000000000000000000000000000000000000",
-										"000000000000000000000000000000000000000000000000", "000000000000000000000000000000000000000000000000");										
-										
 										
 										
 signal sprite_num_color : std_logic_vector (29 downto 0) := "000000000000000000000000000000";
 signal sprite_back_color : std_logic_vector (29 downto 0) := "000000000000000000000000000000";
 
-signal sprite_num_color2 : std_logic_vector (29 downto 0) := "000000000000000000000000000000";
-signal sprite_back_color2 : std_logic_vector (29 downto 0) := "000000000000000000000000000000";
 
 
 
 signal outFree : game_board_free_spaces; --:= (('0', '0', '0', '0'), ('0', '0', '0', '0'), ('0', '0', '0', '0'), ('0', '0', '0', '0'));
 signal outSprites : sprite_location; --:= (("0000","0000","0000","0000"),("0000","0000","0000","0000"),("0000","0000","0000","0000"),("0000","0000","0000","0000"));
 
-signal xCoord : std_logic_vector (1 downto 0) := "00";
-signal yCoord : std_logic_vector (1 downto 0) := "00";
-signal x2Coord : std_logic_vector (1 downto 0) := "00";
-signal y2Coord : std_logic_vector (1 downto 0) := "00";
 
 
 
@@ -264,14 +227,9 @@ tiles_instance : Tiles
 				keyCode => keyCode,
 				outFree => outFree,
 			   outSprites => outSprites,
-				xCoord => xCoord,
-			   yCoord => yCoord, 
-			   x2Coord => x2Coord,
-			   y2Coord => y2Coord,
-				DrawX => DrawXSig,
-				DrawY => DrawYSig,
 				--need Tiles stuff here
-				keyAck => keyAck);
+				keyAck => keyAck,
+				scoreOut => score);
 
 color_instance : Color_Mapper
    Port Map(--again, need Tiles stuff here
@@ -281,13 +239,8 @@ color_instance : Color_Mapper
 				--clk =>clk,
 				score_sprite => score_sprite,
 				tile_sprite => tile_sprite,
-				tile_sprite2 => tile_sprite2,
-				x2Coord => x2Coord,
-			   y2Coord => y2Coord,
 				sprite_num_color =>sprite_num_color,
 				sprite_back_color => sprite_back_color,
-				sprite_num_color2 =>sprite_num_color2,
-				sprite_back_color2 => sprite_back_color2,
 				outFree => outFree,
 				outSprites => outSprites,
 				--Draw_rs_x => Draw_rs_x,
@@ -303,15 +256,10 @@ sprites_instance : Sprites
 					DrawY => DrawYSig,
 					outSprites => outSprites,
 					outFree => outFree,
-					xCoord => xCoord,
-					yCoord => yCoord, 
-					x2Coord => x2Coord,
-			      y2Coord => y2Coord,
+					scoreIn => score,
 					--sprite_img => sprite_img,
 					sprite_num_color =>sprite_num_color,
 					sprite_back_color => sprite_back_color,
-					sprite_num_color2 =>sprite_num_color2,
-					sprite_back_color2 => sprite_back_color2,
 					tile_sprite_out => tile_sprite, --not sure if this will work
 					score_sprite_out =>score_sprite); --forgot this was driving score_sprite
 

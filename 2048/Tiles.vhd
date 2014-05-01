@@ -2,7 +2,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
+--use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.math_real.ALL;
 use IEEE.math_real.uniform;
@@ -14,123 +14,32 @@ use work.Sprite_set.all;
 use work.Sprite_Image.all;
 --use work.rand.all; not working. Library doesn't contain primary unit rand
 
+
+
 entity Tiles is
     Port ( Reset : in std_logic;
 			  frame_clk : in std_logic;
 		     newKey : in std_logic;
-			  DrawX : in std_logic_vector(9 downto 0);
-			  DrawY : in std_logic_vector(9 downto 0);
 			  --need some Tiles stuff
 			  --outboard : out gameBoard;
-			  tileMove : in std_logic_vector(1 downto 0);
 			  outFree : out game_board_free_spaces; 
 			  outSprites : out sprite_location;
-			  xCoord : out std_logic_vector(1 downto 0);
-			  yCoord : out std_logic_vector (1 downto 0);
-			  x2Coord : out std_logic_vector(1 downto 0);
-			  y2Coord : out std_logic_vector (1 downto 0);
 		     keyCode : in std_logic_vector(7 downto 0);
-			  keyAck : out std_logic);
+			  keyAck : out std_logic;
+			  scoreOut : out scoreBoard); 
 end Tiles;
 
 --only dealing with one tile initially
 --and assuming board is empty
 architecture Behavioral of Tiles is
 
-signal Tile_X_Pos, Tile_Y_Pos, Tile_X_motion, Tile_Y_motion, Tile_X2_Motion, Tile_Y2_Motion, Tile_X2_Pos, Tile_Y2_Pos : std_logic_vector (9 downto 0);
-signal Tile_Size : std_logic_vector (10 downto 0); --made 10 to 0 for placing in gb
-
-
-constant Tile_X_Step : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(2, 10);
-constant Tile_Y_Step : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(2, 10);
-
-
---might have to change for tile..don't want it moving that far
-constant X_Min    : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(0, 10);  --Leftmost point on the X axis
-constant X_Max    : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(639, 10);  --Rightmost point on the X axis
-constant Y_Min    : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(0, 10);   --Topmost point on the Y axis
-constant Y_Max    : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(479, 10);  --Bottommost point on the Y axis
-
-
-constant Tile_X_Start : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(42, 10);  --Center position on the X axis
-constant Tile_Y_Start : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(50, 10);  --Center position on the Y axis
-
-constant Tile_X2_Start : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(158, 10);  --Center position on the X axis
-constant Tile_Y2_Start : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(50, 10);  --Center position on the X axis
-
-
 
 signal dataAck : std_logic := '0';
 shared variable dataBuff : std_logic_vector(7 downto 0);
 signal dataReady : std_logic := '0';
-
+type scoreLookUptype is array(0 to 11) of integer;
+constant scoreLookUp : scoreLookUptype := (0, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048);
 signal rand_num : integer := 0;
-
-signal tile_2 : img := 	  ("000000000000000000000000000000000000000000000000",
-									"000000000000000000000000000000000000000000000000",
-									"000000000000000000000000000000000000000000000000",
-									"000000000000000000000000000000000000000000000000",
-									"000000000000000000000000000000000000000000000000",
-									"000000000000000001111111111111111000000000000000",
-									"000000000000001111111111111111111111000000000000",
-									"000000000000011111111111111111111111100000000000",
-									"000000000000011111110000000000111111100000000000",
-									"000000000000000000000000000001111111000000000000",
-									"000000000000000000000000000011111110000000000000",
-									"000000000000000000000000000111111100000000000000",
-									"000000000000000000000000001111111000000000000000",
-									"000000000000000000000000011111110000000000000000",
-									"000000000000000000000000111111100000000000000000",
-									"000000000000000000000001111111000000000000000000",
-									"000000000000000000000011111110000000000000000000",
-									"000000000000000000000111111100000000000000000000",
-									"000000000000000000001111111000000000000000000000",
-									"000000000000000000011111110000000000000000000000",
-									"000000000000000000111111100000000000000000000000",
-									"000000000000000001111111000000000000000000000000",
-									"000000000000000011111111000000000000000000000000",
-									"000000000000001111111110000000000000000000000000",
-									"000000000000111111111111111111111111100000000000",
-									"000000000000111111111111111111111111100000000000",
-									"000000000000000000000000000000000000000000000000",
-									"000000000000000000000000000000000000000000000000",
-									"000000000000000000000000000000000000000000000000",
-									"000000000000000000000000000000000000000000000000",
-									"000000000000000000000000000000000000000000000000",
-									"000000000000000000000000000000000000000000000000");
-									
-signal tile_4 : img := ("000000000000000000000000000000000000000000000000",
-								"000000000000000000000000000000000000000000000000",
-								"000000000000000000000000000000000000000000000000",
-								"000000000000000000000000000000000000000000000000",
-								"000000000000000000000000000000000000000000000000",
-								"000000000000000000000000000000000000000000000000",
-								"000000000000000000000000111111111111000000000000",
-								"000000000000000000000001111111111111000000000000",
-								"000000000000000000000011111100011111000000000000",
-								"000000000000000000000111111000011111000000000000",
-								"000000000000000000001111110000011111000000000000",
-								"000000000000000000011111100000011111000000000000",
-								"000000000000000000111111000000011111000000000000",
-								"000000000000000001111110000000011111000000000000",
-								"000000000000000011111100000000011111000000000000",
-								"000000000000000111111000000000011111000000000000",
-								"000000000000001111110000000000011111000000000000",
-								"000000000000011111100000000000011111000000000000",
-								"000000000000111111000000000000011111000000000000",
-								"000000000001111110000000000000011111000000000000",
-								"000000000011111111111111111111111111110000000000",
-								"000000000111111111111111111111111111110000000000",
-								"000000000011111111111111111111111111100000000000",
-								"000000000000000000000000000000011111000000000000",
-								"000000000000000000000000000000011111000000000000",
-								"000000000000000000000000000000011111000000000000",
-								"000000000000000000000000000000011111000000000000",
-								"000000000000000000000000000000000000000000000000",
-								"000000000000000000000000000000000000000000000000",
-								"000000000000000000000000000000000000000000000000",
-								"000000000000000000000000000000000000000000000000",
-								"000000000000000000000000000000000000000000000000");
 								
 --signal xCoord : std_logic_vector (1 downto 0) := "00";
 --signal yCoord : std_logic_vector (1 downto 0) := "00";
@@ -141,7 +50,7 @@ signal tile_4 : img := ("000000000000000000000000000000000000000000000000",
 
 Begin
 
-	Tile_Size <= CONV_STD_LOGIC_VECTOR(100, 11);
+	--Tile_Size <= CONV_STD_LOGIC_VECTOR(100, 11);
 	
 
 	
@@ -175,29 +84,19 @@ Begin
 		end if;
 	end process;
 
-	Move_tiles : process(Reset, frame_clk, Tile_Size, keyCode, dataReady)
-	variable gb : sprite_location := (("0001", "0001", "0000", "0000"), ("0101", "0110", "0111", "1000"), ("1001", "1010", "1011", "0000"), ("0000", "0000", "0000", "0000"));
-	variable gbFree : game_board_free_spaces := (('1', '1', '0', '0'), ('1', '1', '1', '1'), ('1', '1', '1', '0'), ('0', '0', '0', '0'));
+	Move_tiles : process(Reset, frame_clk, keyCode, dataReady)
+	variable gb : sprite_location := (("0001", "0001", "0001", "0001"), ("0001", "0001", "0001", "0001"), ("0001", "0001", "0001", "0000"), ("0000", "0000", "0000", "0000"));
+	variable gbFree : game_board_free_spaces := (('1', '1', '1', '1'), ('1', '1', '1', '1'), ('1', '1', '1', '0'), ('0', '0', '0', '0'));
 	variable emptyBoard : std_logic := '1';
+	variable score : integer range 0 to 99999 := 11;
 	Begin
 		if(Reset = '1') then   --Asynchronous Reset
-			Tile_Y_Motion <= "0000000000";
-			Tile_X_Motion <= "0000000000";
-			Tile_Y_Pos <= Tile_Y_Start; --to change later with random insertion
-			Tile_X_pos <= Tile_X_Start; --change later with randomness
 			--outFree(0, 0) <= '1';		--also change to random place
 			--outSprites(0, 0) <= "0001";
-			xCoord <= "00";
-			yCoord <= "00";
-			
-			Tile_Y2_Motion <= "0000000000";
-			Tile_X2_Motion <= "0000000000";
-			Tile_Y2_Pos <= Tile_Y2_Start;
-			Tile_X2_Pos <= Tile_X2_start;
+			score := 0;
 			--outFree(0,1) <= '1';
 			--outSprites(0, 1) <= "0010";	--set up for two sprites on top
-			x2Coord <= "01";
-			y2Coord <= "00";
+
 
 		 elsif(rising_edge(frame_clk)) then
 			if(dataReady = '1') then
@@ -215,6 +114,7 @@ Begin
 										gbFree(kndex + 1, index) := '0';
 										gb(kndex, index) := gb(kndex, index) + "0001";
 										gb(kndex + 1, index) := "0000";
+										score := score + scoreLookUp(to_integer(unsigned(gb(kndex, index))));
 									end if;
 								end loop;
 							end if;
@@ -232,9 +132,9 @@ Begin
 										gb(index, kndex+1) := "0000";
 									elsif(gb(index, kndex) = gb(index, kndex + 1)) then
 										gbFree(index, kndex + 1) := '0';
-										
 										gb(index, kndex) := gb(index, kndex) + "0001";
 										gb(index, kndex + 1) := "0000";
+										score := score + scoreLookUp(to_integer(unsigned(gb(index, kndex))));
 									end if;
 								end loop;
 							end if;
@@ -254,6 +154,7 @@ Begin
 										gbFree(kndex - 1, index) := '0';
 										gb(kndex, index) := gb(kndex, index) + "0001";
 										gb(kndex - 1, index) := "0000";
+										score := score + scoreLookUp(to_integer(unsigned(gb(kndex, index))));
 									end if;
 								end loop;
 							end if;
@@ -271,9 +172,9 @@ Begin
 										gb(index, kndex - 1) := "0000";
 									elsif(gb(index, kndex) = gb(index, kndex - 1)) then
 										gbFree(index, kndex - 1) := '0';
-										
 										gb(index, kndex) := gb(index, kndex) + "0001";
 										gb(index, kndex - 1) := "0000";
+										score := score + scoreLookUp(to_integer(unsigned(gb(index, kndex))));
 									end if;
 								end loop;
 							end if;
@@ -288,11 +189,41 @@ Begin
 				dataAck <= '1';
 
 			end if;
-
-			 
+			--if(scoreup = '1') then
+			--	if(scorenum = "0010") then
+			--		score := score + 4;
+			--	elsif(scorenum = "0011") then
+			--		score := score + 8;
+			--	elsif(scorenum = "0100") then
+			--		score := score + 16;
+			--	elsif(scorenum = "0101") then
+			--		score := score + 32;
+			--	elsif(scorenum = "0110") then
+			--		score := score + 64;
+			--	elsif(scorenum = "0111") then
+			--		score := score + 128;
+			--	elsif(scorenum = "1000") then
+			--		score := score + 256;
+			--	elsif(scorenum = "1001") then
+			--		score := score + 512;
+			--	elsif(scorenum = "1010") then
+			--		score := score + 1024;
+			--	elsif(scorenum = "1011") then
+			--		score := score + 2048;
+			--	else
+			--		score := 1;
+			--	end if;
+			--else
+			--	score := score;
+			--end if;
 		 end if;
   outfree <= gbfree;
   outSprites <= gb;
+  scoreOut(0) <= score mod 10;
+  scoreOut(1) <= score/10 mod 10;
+  scoreOut(2) <= score/100 mod 10;
+  scoreOut(3) <= score/1000 mod 10;
+  scoreOut(4) <= score/10000 mod 10;
   end process Move_Tiles;
 
   --TileX <= Tile_X_Pos;
