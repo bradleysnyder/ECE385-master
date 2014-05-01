@@ -1,5 +1,5 @@
 Analysis & Synthesis report for 2048
-Thu May 01 03:08:21 2014
+Thu May 01 04:33:46 2014
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
@@ -56,15 +56,15 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu May 01 03:08:21 2014      ;
+; Analysis & Synthesis Status        ; Successful - Thu May 01 04:33:46 2014      ;
 ; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
 ; Revision Name                      ; 2048                                       ;
 ; Top-level Entity Name              ; 2048                                       ;
 ; Family                             ; Cyclone II                                 ;
-; Total logic elements               ; 12,620                                     ;
-;     Total combinational functions  ; 12,592                                     ;
-;     Dedicated logic registers      ; 186                                        ;
-; Total registers                    ; 186                                        ;
+; Total logic elements               ; 16,642                                     ;
+;     Total combinational functions  ; 16,615                                     ;
+;     Dedicated logic registers      ; 220                                        ;
+; Total registers                    ; 220                                        ;
 ; Total pins                         ; 54                                         ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 0                                          ;
@@ -223,28 +223,28 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                            ;
 +---------------------------------------------+------------------------------------------------------------------+
-; Estimated Total logic elements              ; 12,620                                                           ;
+; Estimated Total logic elements              ; 16,642                                                           ;
 ;                                             ;                                                                  ;
-; Total combinational functions               ; 12592                                                            ;
+; Total combinational functions               ; 16615                                                            ;
 ; Logic element usage by number of LUT inputs ;                                                                  ;
-;     -- 4 input functions                    ; 6747                                                             ;
-;     -- 3 input functions                    ; 3928                                                             ;
-;     -- <=2 input functions                  ; 1917                                                             ;
+;     -- 4 input functions                    ; 6872                                                             ;
+;     -- 3 input functions                    ; 5025                                                             ;
+;     -- <=2 input functions                  ; 4718                                                             ;
 ;                                             ;                                                                  ;
 ; Logic elements by mode                      ;                                                                  ;
-;     -- normal mode                          ; 10493                                                            ;
-;     -- arithmetic mode                      ; 2099                                                             ;
+;     -- normal mode                          ; 11633                                                            ;
+;     -- arithmetic mode                      ; 4982                                                             ;
 ;                                             ;                                                                  ;
-; Total registers                             ; 186                                                              ;
-;     -- Dedicated logic registers            ; 186                                                              ;
+; Total registers                             ; 220                                                              ;
+;     -- Dedicated logic registers            ; 220                                                              ;
 ;     -- I/O registers                        ; 0                                                                ;
 ;                                             ;                                                                  ;
 ; I/O pins                                    ; 54                                                               ;
 ; Embedded Multiplier 9-bit elements          ; 0                                                                ;
 ; Maximum fan-out node                        ; GameBoard1:inst6|vga_controllerz:vgaSync_instance|horiz_count[0] ;
-; Maximum fan-out                             ; 495                                                              ;
-; Total fan-out                               ; 43060                                                            ;
-; Average fan-out                             ; 3.36                                                             ;
+; Maximum fan-out                             ; 492                                                              ;
+; Total fan-out                               ; 52491                                                            ;
+; Average fan-out                             ; 3.11                                                             ;
 +---------------------------------------------+------------------------------------------------------------------+
 
 
@@ -253,11 +253,11 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                         ; Library Name ;
 +----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |2048                                        ; 12592 (0)         ; 186 (0)      ; 0           ; 0            ; 0       ; 0         ; 54   ; 0            ; |2048                                                                                                                                       ;              ;
-;    |GameBoard1:inst6|                        ; 12522 (0)         ; 143 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6                                                                                                                      ;              ;
-;       |Color_Mapper:color_instance|          ; 1836 (1836)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|Color_Mapper:color_instance                                                                                          ;              ;
-;       |Sprites:sprites_instance|             ; 1398 (1398)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|Sprites:sprites_instance                                                                                             ;              ;
-;       |Tiles:tiles_instance|                 ; 9234 (7259)       ; 112 (112)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|Tiles:tiles_instance                                                                                                 ;              ;
+; |2048                                        ; 16615 (0)         ; 220 (0)      ; 0           ; 0            ; 0       ; 0         ; 54   ; 0            ; |2048                                                                                                                                       ;              ;
+;    |GameBoard1:inst6|                        ; 16545 (0)         ; 177 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6                                                                                                                      ;              ;
+;       |Color_Mapper:color_instance|          ; 1848 (1848)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|Color_Mapper:color_instance                                                                                          ;              ;
+;       |Sprites:sprites_instance|             ; 1381 (1381)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|Sprites:sprites_instance                                                                                             ;              ;
+;       |Tiles:tiles_instance|                 ; 13264 (11288)     ; 146 (146)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|Tiles:tiles_instance                                                                                                 ;              ;
 ;          |lpm_divide:Div0|                   ; 173 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|Tiles:tiles_instance|lpm_divide:Div0                                                                                 ;              ;
 ;             |lpm_divide_hem:auto_generated|  ; 173 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|Tiles:tiles_instance|lpm_divide:Div0|lpm_divide_hem:auto_generated                                                   ;              ;
 ;                |sign_div_unsign_rlh:divider| ; 173 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|Tiles:tiles_instance|lpm_divide:Div0|lpm_divide_hem:auto_generated|sign_div_unsign_rlh:divider                       ;              ;
@@ -278,10 +278,10 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;             |lpm_divide_88m:auto_generated|  ; 410 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|Tiles:tiles_instance|lpm_divide:Mod0|lpm_divide_88m:auto_generated                                                   ;              ;
 ;                |sign_div_unsign_fnh:divider| ; 410 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|Tiles:tiles_instance|lpm_divide:Mod0|lpm_divide_88m:auto_generated|sign_div_unsign_fnh:divider                       ;              ;
 ;                   |alt_u_div_06f:divider|    ; 410 (410)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|Tiles:tiles_instance|lpm_divide:Mod0|lpm_divide_88m:auto_generated|sign_div_unsign_fnh:divider|alt_u_div_06f:divider ;              ;
-;          |lpm_divide:Mod1|                   ; 362 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|Tiles:tiles_instance|lpm_divide:Mod1                                                                                 ;              ;
-;             |lpm_divide_88m:auto_generated|  ; 362 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|Tiles:tiles_instance|lpm_divide:Mod1|lpm_divide_88m:auto_generated                                                   ;              ;
-;                |sign_div_unsign_fnh:divider| ; 362 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|Tiles:tiles_instance|lpm_divide:Mod1|lpm_divide_88m:auto_generated|sign_div_unsign_fnh:divider                       ;              ;
-;                   |alt_u_div_06f:divider|    ; 362 (362)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|Tiles:tiles_instance|lpm_divide:Mod1|lpm_divide_88m:auto_generated|sign_div_unsign_fnh:divider|alt_u_div_06f:divider ;              ;
+;          |lpm_divide:Mod1|                   ; 363 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|Tiles:tiles_instance|lpm_divide:Mod1                                                                                 ;              ;
+;             |lpm_divide_88m:auto_generated|  ; 363 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|Tiles:tiles_instance|lpm_divide:Mod1|lpm_divide_88m:auto_generated                                                   ;              ;
+;                |sign_div_unsign_fnh:divider| ; 363 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|Tiles:tiles_instance|lpm_divide:Mod1|lpm_divide_88m:auto_generated|sign_div_unsign_fnh:divider                       ;              ;
+;                   |alt_u_div_06f:divider|    ; 363 (363)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|Tiles:tiles_instance|lpm_divide:Mod1|lpm_divide_88m:auto_generated|sign_div_unsign_fnh:divider|alt_u_div_06f:divider ;              ;
 ;          |lpm_divide:Mod2|                   ; 291 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|Tiles:tiles_instance|lpm_divide:Mod2                                                                                 ;              ;
 ;             |lpm_divide_88m:auto_generated|  ; 291 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|Tiles:tiles_instance|lpm_divide:Mod2|lpm_divide_88m:auto_generated                                                   ;              ;
 ;                |sign_div_unsign_fnh:divider| ; 291 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|Tiles:tiles_instance|lpm_divide:Mod2|lpm_divide_88m:auto_generated|sign_div_unsign_fnh:divider                       ;              ;
@@ -296,7 +296,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;                   |alt_u_div_06f:divider|    ; 13 (13)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|Tiles:tiles_instance|lpm_divide:Mod4|lpm_divide_88m:auto_generated|sign_div_unsign_fnh:divider|alt_u_div_06f:divider ;              ;
 ;       |randtop:rand_instance|                ; 9 (0)             ; 8 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|randtop:rand_instance                                                                                                ;              ;
 ;          |randGen:rg|                        ; 9 (9)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|randtop:rand_instance|randGen:rg                                                                                     ;              ;
-;       |vga_controllerz:vgaSync_instance|     ; 45 (45)           ; 23 (23)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|vga_controllerz:vgaSync_instance                                                                                     ;              ;
+;       |vga_controllerz:vgaSync_instance|     ; 43 (43)           ; 23 (23)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|GameBoard1:inst6|vga_controllerz:vgaSync_instance                                                                                     ;              ;
 ;    |hexDriver:inst3|                         ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|hexDriver:inst3                                                                                                                       ;              ;
 ;    |hexDriver:inst4|                         ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|hexDriver:inst4                                                                                                                       ;              ;
 ;    |keyboard:inst|                           ; 56 (0)            ; 43 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |2048|keyboard:inst                                                                                                                         ;              ;
@@ -328,15 +328,14 @@ Encoding Type:  One-Hot
 +------------+------------+------------+------------+------------+---------+---------+---------+---------+------------+
 
 
-+-------------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                         ;
-+--------------------------------------------------------------+---------------------+------------------------+
-; Latch Name                                                   ; Latch Enable Signal ; Free of Timing Hazards ;
-+--------------------------------------------------------------+---------------------+------------------------+
-; GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:emptyBoard ; GND                 ; yes                    ;
-; keyboard:inst|keyCapture:ins3t|keyReady                      ; GND                 ; yes                    ;
-; Number of user-specified and inferred latches = 2            ;                     ;                        ;
-+--------------------------------------------------------------+---------------------+------------------------+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; keyboard:inst|keyCapture:ins3t|keyReady            ; GND                 ; yes                    ;
+; Number of user-specified and inferred latches = 1  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
@@ -358,24 +357,29 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 186   ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 14    ;
+; Total registers                              ; 220   ;
+; Number of registers using Synchronous Clear  ; 32    ;
+; Number of registers using Synchronous Load   ; 24    ;
 ; Number of registers using Asynchronous Clear ; 151   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 142   ;
+; Number of registers using Clock Enable       ; 157   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------------+
-; Inverted Register Statistics                           ;
-+----------------------------------------------+---------+
-; Inverted Register                            ; Fan out ;
-+----------------------------------------------+---------+
-; GameBoard1:inst6|Tiles:tiles_instance|keyAck ; 9       ;
-; Total number of inverted registers = 1       ;         ;
-+----------------------------------------------+---------+
++------------------------------------------------------------------------+
+; Inverted Register Statistics                                           ;
++--------------------------------------------------------------+---------+
+; Inverted Register                                            ; Fan out ;
++--------------------------------------------------------------+---------+
+; GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:emptyBoard ; 79      ;
+; GameBoard1:inst6|Tiles:tiles_instance|keyAck                 ; 9       ;
+; GameBoard1:inst6|randtop:rand_instance|randGen:rg|r[6]       ; 2       ;
+; GameBoard1:inst6|randtop:rand_instance|randGen:rg|r[2]       ; 2       ;
+; GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:count[0]   ; 6       ;
+; GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:count[31]  ; 6       ;
+; Total number of inverted registers = 6                       ;         ;
++--------------------------------------------------------------+---------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -383,323 +387,417 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                               ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------+
-; 17:1               ; 14 bits   ; 154 LEs       ; 112 LEs              ; 42 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:score[11]        ;
-; 17:1               ; 4 bits    ; 44 LEs        ; 16 LEs               ; 28 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][0][0]      ;
-; 17:1               ; 4 bits    ; 44 LEs        ; 20 LEs               ; 24 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][1][0]      ;
-; 17:1               ; 4 bits    ; 44 LEs        ; 20 LEs               ; 24 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][2][0]      ;
-; 17:1               ; 4 bits    ; 44 LEs        ; 16 LEs               ; 28 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][3][1]      ;
-; 17:1               ; 4 bits    ; 44 LEs        ; 20 LEs               ; 24 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][0][3]      ;
-; 17:1               ; 4 bits    ; 44 LEs        ; 24 LEs               ; 20 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][1][3]      ;
-; 17:1               ; 4 bits    ; 44 LEs        ; 24 LEs               ; 20 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][2][3]      ;
-; 17:1               ; 4 bits    ; 44 LEs        ; 24 LEs               ; 20 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][3][3]      ;
-; 17:1               ; 4 bits    ; 44 LEs        ; 20 LEs               ; 24 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][0][3]      ;
-; 17:1               ; 4 bits    ; 44 LEs        ; 24 LEs               ; 20 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][1][3]      ;
-; 17:1               ; 4 bits    ; 44 LEs        ; 24 LEs               ; 20 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][2][3]      ;
-; 17:1               ; 4 bits    ; 44 LEs        ; 24 LEs               ; 20 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][3][2]      ;
-; 17:1               ; 4 bits    ; 44 LEs        ; 16 LEs               ; 28 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][0][3]      ;
-; 17:1               ; 4 bits    ; 44 LEs        ; 20 LEs               ; 24 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][1][3]      ;
-; 17:1               ; 4 bits    ; 44 LEs        ; 20 LEs               ; 24 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][2][2]      ;
-; 17:1               ; 4 bits    ; 44 LEs        ; 16 LEs               ; 28 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][3][2]      ;
-; 17:1               ; 2 bits    ; 22 LEs        ; 16 LEs               ; 6 LEs                  ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:score[3]         ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|newT[1]                      ;
+; 17:1               ; 16 bits   ; 176 LEs       ; 128 LEs              ; 48 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:score[11]        ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 8 LEs                ; 20 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][0][3]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 10 LEs               ; 18 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][0][0]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 12 LEs               ; 16 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][1][3]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 12 LEs               ; 16 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][1][0]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 12 LEs               ; 16 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][2][2]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 12 LEs               ; 16 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][2][0]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 8 LEs                ; 20 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][3][2]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 10 LEs               ; 18 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][3][0]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 12 LEs               ; 16 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][0][3]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 12 LEs               ; 16 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][0][0]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][1][2]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 16 LEs               ; 12 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][1][0]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][2][2]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 16 LEs               ; 12 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][2][1]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 12 LEs               ; 16 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][3][2]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][3][1]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 12 LEs               ; 16 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][0][2]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 12 LEs               ; 16 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][0][1]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][1][2]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 16 LEs               ; 12 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][1][1]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][2][2]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 16 LEs               ; 12 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][2][1]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 12 LEs               ; 16 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][3][2]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][3][1]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 8 LEs                ; 20 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][0][2]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 10 LEs               ; 18 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][0][1]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 10 LEs               ; 18 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][1][3]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 12 LEs               ; 16 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][1][1]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 10 LEs               ; 18 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][2][3]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 12 LEs               ; 16 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][2][1]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 8 LEs                ; 20 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][3][3]      ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 10 LEs               ; 18 LEs                 ; Yes        ; |2048|GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][3][1]      ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Mux139                ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
 ; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
 ; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
 ; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
 ; 3:1                ; 19 bits   ; 38 LEs        ; 38 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
-; 3:1                ; 60 bits   ; 120 LEs       ; 120 LEs              ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|tile_sprite_out[8][18]   ;
+; 3:1                ; 61 bits   ; 122 LEs       ; 122 LEs              ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|tile_sprite_out[10][30]  ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|g                        ;
 ; 3:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|tile_sprite_out          ;
-; 3:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|tile_sprite_out          ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 26 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|tile_sprite_out          ;
 ; 3:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|tile_sprite_out          ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gbFree                       ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gbFree                       ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gbFree                       ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gbFree                       ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gbFree                       ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gbFree                       ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Mux117                ;
-; 4:1                ; 42 bits   ; 84 LEs        ; 84 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Mux120                ;
+; 4:1                ; 42 bits   ; 84 LEs        ; 84 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Mux85                 ;
 ; 4:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
 ; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
-; 4:1                ; 35 bits   ; 70 LEs        ; 70 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|tile_sprite_out[14][22]  ;
+; 4:1                ; 33 bits   ; 66 LEs        ; 66 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|tile_sprite_out[10][19]  ;
 ; 4:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|tile_sprite_out          ;
 ; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|tile_sprite_out          ;
-; 8:1                ; 4 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Mux110                ;
-; 8:1                ; 4 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Mux9                  ;
-; 8:1                ; 4 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Mux4                  ;
-; 8:1                ; 4 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Mux2                  ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Mux143                ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Mux10                 ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Mux6                  ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Mux1                  ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
 ; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|score                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|gb                           ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Blue                  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Red                   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Red                   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Red                   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Red                   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Red                   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Red                   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Red                   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Red                   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Blue                  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Red                   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Red                   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Red                   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Red                   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Red                   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Red                   ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
 ; 5:1                ; 6 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
-; 5:1                ; 5 bits    ; 15 LEs        ; 15 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
-; 5:1                ; 36 bits   ; 108 LEs       ; 108 LEs              ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|tile_sprite_out[13][15]  ;
+; 5:1                ; 38 bits   ; 114 LEs       ; 114 LEs              ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|tile_sprite_out[11][39]  ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
 ; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
 ; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Mux119                ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|tile_sprite_out          ;
-; 6:1                ; 7 bits    ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|tile_sprite_out[10][13]  ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|g                        ;
+; 6:1                ; 6 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|tile_sprite_out[17][26]  ;
 ; 7:1                ; 5 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
-; 19:1               ; 2 bits    ; 24 LEs        ; 10 LEs               ; 14 LEs                 ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
 ; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
 ; 7:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
-; 16:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|Mux18                    ;
-; 13:1               ; 2 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|\sprite_color_intro:y[0] ;
-; 18:1               ; 2 bits    ; 24 LEs        ; 22 LEs               ; 2 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Blue[5]               ;
-; 66:1               ; 2 bits    ; 88 LEs        ; 8 LEs                ; 80 LEs                 ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Red[7]                ;
-; 36:1               ; 6 bits    ; 144 LEs       ; 18 LEs               ; 126 LEs                ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Green[7]              ;
-; 37:1               ; 8 bits    ; 192 LEs       ; 40 LEs               ; 152 LEs                ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Blue[6]               ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|r_num                    ;
+; 16:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|Mux17                    ;
+; 13:1               ; 2 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; No         ; |2048|GameBoard1:inst6|Sprites:sprites_instance|\sprite_color_intro:y[1] ;
+; 18:1               ; 3 bits    ; 36 LEs        ; 33 LEs               ; 3 LEs                  ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Blue[4]               ;
+; 20:1               ; 32 bits   ; 416 LEs       ; 256 LEs              ; 160 LEs                ; No         ; |2048|GameBoard1:inst6|Tiles:tiles_instance|count                        ;
+; 66:1               ; 4 bits    ; 176 LEs       ; 8 LEs                ; 168 LEs                ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Red[6]                ;
+; 36:1               ; 7 bits    ; 168 LEs       ; 28 LEs               ; 140 LEs                ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Red[5]                ;
+; 37:1               ; 4 bits    ; 96 LEs        ; 16 LEs               ; 80 LEs                 ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Blue[8]               ;
+; 38:1               ; 2 bits    ; 50 LEs        ; 12 LEs               ; 38 LEs                 ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Blue[7]               ;
 ; 32:1               ; 2 bits    ; 42 LEs        ; 32 LEs               ; 10 LEs                 ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Mux143                ;
 ; 32:1               ; 2 bits    ; 42 LEs        ; 32 LEs               ; 10 LEs                 ; No         ; |2048|GameBoard1:inst6|Color_Mapper:color_instance|Mux77                 ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------+
@@ -931,7 +1029,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:01:16     ;
+; Top            ; 00:01:19     ;
 +----------------+--------------+
 
 
@@ -941,7 +1039,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
-    Info: Processing started: Thu May 01 03:06:59 2014
+    Info: Processing started: Thu May 01 04:32:21 2014
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off 2048 -c 2048
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file randtop.vhd
@@ -1016,10 +1114,7 @@ Warning (10036): Verilog HDL or VHDL warning at GameBoard1.vhd(192): object "see
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "outSprites" into its bus
 Info (12128): Elaborating entity "vga_controllerz" for hierarchy "GameBoard1:inst6|vga_controllerz:vgaSync_instance"
 Info (12128): Elaborating entity "Tiles" for hierarchy "GameBoard1:inst6|Tiles:tiles_instance"
-Warning (10492): VHDL Process Statement warning at Tiles.vhd(245): signal "newT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10631): VHDL Process Statement warning at Tiles.vhd(94): inferring latch(es) for signal or variable "score", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at Tiles.vhd(94): inferring latch(es) for signal or variable "emptyBoard", which holds its previous value in one or more paths through the process
-Info (10041): Inferred latch for "Move_tiles:emptyBoard" at Tiles.vhd(227)
 Info (10041): Inferred latch for "Move_tiles:score[0]" at Tiles.vhd(227)
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "outSprites" into its bus
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "Move_tiles:gb" into its bus
@@ -1135,95 +1230,9 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alt_
     Info (12023): Found entity 1: alt_u_div_o2f
 Info (13000): Registers with preset signals will power-up high
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
-Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[0][0]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[0][0]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[0][0]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[0][1]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[0][1]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[0][1]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[0][2]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[0][2]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[0][2]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[1][1]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[1][1]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[1][1]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[1][2]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[1][2]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[1][2]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[2][1]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[2][1]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[2][1]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[2][2]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[2][2]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[2][2]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[3][1]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[3][1]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[3][1]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[3][2]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[3][2]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[3][2]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[2][3]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[2][3]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[2][3]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[3][0]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[3][0]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[3][0]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[1][3]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[1][3]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[1][3]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[2][0]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[2][0]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[2][0]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[0][3]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[0][3]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[0][3]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[1][0]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[1][0]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[1][0]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[3][3]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[3][3]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gbFree[3][3]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][2][0]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][2][0]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][2][0]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][1][0]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][1][0]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][1][0]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][0][0]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][0][0]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][0][0]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][3][0]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][3][0]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][3][0]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][1][0]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][1][0]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][1][0]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][2][0]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][2][0]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][2][0]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][0][0]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][0][0]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][0][0]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][3][0]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][3][0]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][3][0]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][2][0]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][2][0]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][2][0]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][1][0]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][1][0]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][1][0]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][0][0]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][0][0]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][0][0]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][3][0]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][3][0]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][3][0]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][1][0]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][1][0]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][1][0]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][2][0]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][2][0]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][2][0]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][0][0]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][0][0]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][0][0]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][3][0]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][3][0]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][3][0]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][2][1]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][2][1]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][2][1]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][2][1]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][2][1]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][2][1]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][2][1]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][2][1]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][2][1]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][2][1]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][2][1]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][2][1]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][1][1]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][1][1]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][1][1]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][1][1]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][1][1]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][1][1]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][1][1]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][1][1]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][1][1]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][1][1]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][1][1]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][1][1]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][0][1]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][0][1]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][0][1]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][0][1]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][0][1]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][0][1]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][0][1]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][0][1]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][0][1]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][0][1]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][0][1]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][0][1]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][3][1]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][3][1]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][3][1]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][3][1]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][3][1]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][3][1]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][3][1]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][3][1]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][3][1]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][3][1]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][3][1]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][3][1]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][2][2]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][2][2]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][2][2]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][1][2]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][1][2]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][1][2]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][0][2]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][0][2]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][0][2]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][3][2]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][3][2]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][3][2]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][1][2]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][1][2]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][1][2]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][2][2]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][2][2]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][2][2]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][0][2]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][0][2]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][0][2]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][3][2]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][3][2]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][3][2]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][1][2]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][1][2]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][1][2]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][2][2]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][2][2]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][2][2]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][0][2]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][0][2]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][0][2]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][3][2]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][3][2]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][3][2]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][2][2]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][2][2]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][2][2]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][1][2]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][1][2]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][1][2]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][0][2]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][0][2]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][0][2]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][3][2]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][3][2]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][3][2]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][1][3]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][1][3]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][1][3]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][1][3]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][1][3]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][1][3]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][1][3]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][1][3]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][1][3]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][1][3]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][1][3]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][1][3]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][2][3]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][2][3]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][2][3]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][2][3]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][2][3]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][2][3]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][2][3]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][2][3]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][2][3]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][2][3]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][2][3]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][2][3]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][0][3]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][0][3]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][0][3]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][0][3]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][0][3]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][0][3]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][0][3]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][0][3]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][0][3]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][0][3]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][0][3]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][0][3]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][3][3]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][3][3]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[1][3][3]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][3][3]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][3][3]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[2][3][3]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][3][3]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][3][3]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[0][3][3]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][3][3]" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][3][3]~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:gb[3][3][3]~1"
-    Warning (13310): Register "GameBoard1:inst6|Tiles:tiles_instance|newT" is converted into an equivalent circuit using register "GameBoard1:inst6|Tiles:tiles_instance|newT~_emulated" and latch "GameBoard1:inst6|Tiles:tiles_instance|newT~1"
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "sync" is stuck at GND
-Critical Warning (18061): Ignored Power-Up Level option on the following registers
-    Critical Warning (18010): Register GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:score[3] will power up to Low
-    Critical Warning (18010): Register GameBoard1:inst6|Tiles:tiles_instance|\Move_tiles:score[1] will power up to Low
 Info (17016): Found the following redundant logic cells in design
-    Info (17048): Logic cell "GameBoard1:inst6|Tiles:tiles_instance|lpm_divide:Mod4|lpm_divide_88m:auto_generated|sign_div_unsign_fnh:divider|alt_u_div_06f:divider|op_7~16"
     Info (17048): Logic cell "GameBoard1:inst6|Tiles:tiles_instance|lpm_divide:Mod3|lpm_divide_88m:auto_generated|sign_div_unsign_fnh:divider|alt_u_div_06f:divider|op_3~18"
     Info (17048): Logic cell "GameBoard1:inst6|Tiles:tiles_instance|lpm_divide:Mod3|lpm_divide_88m:auto_generated|sign_div_unsign_fnh:divider|alt_u_div_06f:divider|op_4~22"
     Info (17048): Logic cell "GameBoard1:inst6|Tiles:tiles_instance|lpm_divide:Mod3|lpm_divide_88m:auto_generated|sign_div_unsign_fnh:divider|alt_u_div_06f:divider|add_sub_14_result_int[0]~30"
@@ -1237,16 +1246,17 @@ Info (17016): Found the following redundant logic cells in design
     Info (17048): Logic cell "GameBoard1:inst6|Tiles:tiles_instance|lpm_divide:Mod2|lpm_divide_88m:auto_generated|sign_div_unsign_fnh:divider|alt_u_div_06f:divider|add_sub_14_result_int[0]~30"
     Info (17048): Logic cell "GameBoard1:inst6|Tiles:tiles_instance|lpm_divide:Mod2|lpm_divide_88m:auto_generated|sign_div_unsign_fnh:divider|alt_u_div_06f:divider|add_sub_15_result_int[0]~32"
     Info (17048): Logic cell "GameBoard1:inst6|Tiles:tiles_instance|lpm_divide:Mod2|lpm_divide_88m:auto_generated|sign_div_unsign_fnh:divider|alt_u_div_06f:divider|add_sub_16_result_int[0]~34"
+    Info (17048): Logic cell "GameBoard1:inst6|Tiles:tiles_instance|lpm_divide:Mod4|lpm_divide_88m:auto_generated|sign_div_unsign_fnh:divider|alt_u_div_06f:divider|op_7~16"
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 12687 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 16741 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 49 output pins
-    Info (21061): Implemented 12633 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 105 warnings
-    Info: Peak virtual memory: 544 megabytes
-    Info: Processing ended: Thu May 01 03:08:21 2014
-    Info: Elapsed time: 00:01:22
-    Info: Total CPU time (on all processors): 00:01:22
+    Info (21061): Implemented 16687 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 18 warnings
+    Info: Peak virtual memory: 600 megabytes
+    Info: Processing ended: Thu May 01 04:33:46 2014
+    Info: Elapsed time: 00:01:25
+    Info: Total CPU time (on all processors): 00:01:25
 
 

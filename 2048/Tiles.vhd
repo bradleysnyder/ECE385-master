@@ -46,7 +46,7 @@ signal rand : std_logic_vector(7 downto 0);
 --signal yCoord : std_logic_vector (1 downto 0) := "00";
 --signal x2Coord : std_logic_vector (1 downto 0) := "00";
 --signal y2Coord : std_logic_vector (1 downto 0) := "00";
-signal newT : std_logic;
+signal newT : integer range 0 to 2;
 
 Begin
 
@@ -248,15 +248,15 @@ Begin
 					end loop;
 				end loop;
 				emptyBoard := '0';
-				newT <= '1';
-			elsif(newT = '1') then
+				newT <= 2;
+			elsif(newT > 0) then
 				newtile;
 				if(gbFree(checky, checkx) = '0') then
 					gbFree(checky, checkx) := '1';
 					gb(checky, checkx) := values;
-					newT <= '0';
+					newT <= newT - 1;
 				else
-					newT <= '1';
+					newT <= newT;
 				end if;
 				count := 0;
 			elsif(dataReady = '1') then
@@ -360,7 +360,7 @@ Begin
 
 			end if;
 		 		if(count > 0) then
-					newT <= '1';
+					newT <= 1;
 				end if;
 		 end if;
 

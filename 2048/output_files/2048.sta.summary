@@ -3,104 +3,60 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow Model Setup 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|vs'
-Slack : -81.003
-TNS   : -4499.677
-
-Type  : Slow Model Setup 'reset'
-Slack : -17.987
-TNS   : -1150.079
+Slack : -66.944
+TNS   : -4512.854
 
 Type  : Slow Model Setup 'keyboard:inst|clkDiv:inst|temp'
-Slack : -4.071
-TNS   : -32.796
+Slack : -3.229
+TNS   : -25.902
 
 Type  : Slow Model Setup 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|clkdiv'
-Slack : -2.156
-TNS   : -35.745
+Slack : -2.380
+TNS   : -33.275
 
 Type  : Slow Model Setup 'keyboard:inst|psclk:inst2|Dreg:reg1|Q'
-Slack : -1.622
-TNS   : -17.986
+Slack : -1.471
+TNS   : -15.546
 
 Type  : Slow Model Setup 'clk'
-Slack : -0.976
-TNS   : -6.666
-
-Type  : Slow Model Hold 'reset'
-Slack : -5.276
-TNS   : -285.539
+Slack : -0.839
+TNS   : -5.773
 
 Type  : Slow Model Hold 'clk'
-Slack : -2.509
-TNS   : -5.018
+Slack : -2.557
+TNS   : -5.101
 
 Type  : Slow Model Hold 'keyboard:inst|clkDiv:inst|temp'
-Slack : -0.286
-TNS   : -0.286
+Slack : -1.864
+TNS   : -1.864
+
+Type  : Slow Model Hold 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|clkdiv'
+Slack : 0.391
+TNS   : 0.000
 
 Type  : Slow Model Hold 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|vs'
-Slack : 0.033
+Slack : 0.391
 TNS   : 0.000
 
 Type  : Slow Model Hold 'keyboard:inst|psclk:inst2|Dreg:reg1|Q'
-Slack : 0.202
-TNS   : 0.000
-
-Type  : Slow Model Hold 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|clkdiv'
-Slack : 0.806
+Slack : 0.391
 TNS   : 0.000
 
 Type  : Slow Model Recovery 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|vs'
-Slack : -14.817
-TNS   : -1165.815
-
-Type  : Slow Model Recovery 'keyboard:inst|clkDiv:inst|temp'
-Slack : -1.042
-TNS   : -8.459
+Slack : -0.780
+TNS   : -0.780
 
 Type  : Slow Model Recovery 'keyboard:inst|psclk:inst2|Dreg:reg1|Q'
-Slack : -0.260
-TNS   : -0.779
-
-Type  : Slow Model Recovery 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|clkdiv'
-Slack : -0.111
-TNS   : -2.259
-
-Type  : Slow Model Recovery 'reset'
-Slack : 0.354
-TNS   : 0.000
-
-Type  : Slow Model Recovery 'clk'
-Slack : 0.766
-TNS   : 0.000
-
-Type  : Slow Model Removal 'reset'
-Slack : -5.685
-TNS   : -438.084
-
-Type  : Slow Model Removal 'clk'
-Slack : -0.496
-TNS   : -4.960
+Slack : -0.264
+TNS   : -0.264
 
 Type  : Slow Model Removal 'keyboard:inst|psclk:inst2|Dreg:reg1|Q'
-Slack : 0.311
-TNS   : 0.000
-
-Type  : Slow Model Removal 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|clkdiv'
-Slack : 0.364
-TNS   : 0.000
-
-Type  : Slow Model Removal 'keyboard:inst|clkDiv:inst|temp'
-Slack : 0.955
+Slack : 1.034
 TNS   : 0.000
 
 Type  : Slow Model Removal 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|vs'
-Slack : 1.320
+Slack : 1.427
 TNS   : 0.000
-
-Type  : Slow Model Minimum Pulse Width 'reset'
-Slack : -3.536
-TNS   : -1168.102
 
 Type  : Slow Model Minimum Pulse Width 'clk'
 Slack : -1.380
@@ -108,7 +64,7 @@ TNS   : -19.380
 
 Type  : Slow Model Minimum Pulse Width 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|vs'
 Slack : -0.500
-TNS   : -112.000
+TNS   : -146.000
 
 Type  : Slow Model Minimum Pulse Width 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|clkdiv'
 Slack : -0.500
@@ -123,112 +79,68 @@ Slack : -0.500
 TNS   : -12.000
 
 Type  : Fast Model Setup 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|vs'
-Slack : -35.292
-TNS   : -1998.507
-
-Type  : Fast Model Setup 'reset'
-Slack : -7.733
-TNS   : -474.615
+Slack : -28.849
+TNS   : -1908.450
 
 Type  : Fast Model Setup 'keyboard:inst|clkDiv:inst|temp'
-Slack : -1.590
-TNS   : -12.380
+Slack : -1.116
+TNS   : -8.681
 
 Type  : Fast Model Setup 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|clkdiv'
-Slack : -0.509
-TNS   : -6.794
+Slack : -0.525
+TNS   : -5.591
 
 Type  : Fast Model Setup 'keyboard:inst|psclk:inst2|Dreg:reg1|Q'
-Slack : -0.259
-TNS   : -2.072
+Slack : -0.205
+TNS   : -1.640
 
 Type  : Fast Model Setup 'clk'
-Slack : 0.095
+Slack : 0.173
 TNS   : 0.000
 
-Type  : Fast Model Hold 'reset'
-Slack : -2.592
-TNS   : -135.617
-
 Type  : Fast Model Hold 'clk'
-Slack : -1.555
-TNS   : -3.110
+Slack : -1.597
+TNS   : -3.181
 
 Type  : Fast Model Hold 'keyboard:inst|clkDiv:inst|temp'
-Slack : -0.221
-TNS   : -0.221
-
-Type  : Fast Model Hold 'keyboard:inst|psclk:inst2|Dreg:reg1|Q'
-Slack : -0.121
-TNS   : -0.273
-
-Type  : Fast Model Hold 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|vs'
-Slack : -0.026
-TNS   : -0.026
+Slack : -0.995
+TNS   : -0.995
 
 Type  : Fast Model Hold 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|clkdiv'
-Slack : 0.360
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|vs'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'keyboard:inst|psclk:inst2|Dreg:reg1|Q'
+Slack : 0.215
 TNS   : 0.000
 
 Type  : Fast Model Recovery 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|vs'
-Slack : -6.861
-TNS   : -515.094
-
-Type  : Fast Model Recovery 'keyboard:inst|clkDiv:inst|temp'
-Slack : -0.343
-TNS   : -0.343
+Slack : 0.090
+TNS   : 0.000
 
 Type  : Fast Model Recovery 'keyboard:inst|psclk:inst2|Dreg:reg1|Q'
-Slack : 0.299
+Slack : 0.298
 TNS   : 0.000
-
-Type  : Fast Model Recovery 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|clkdiv'
-Slack : 0.309
-TNS   : 0.000
-
-Type  : Fast Model Recovery 'reset'
-Slack : 0.786
-TNS   : 0.000
-
-Type  : Fast Model Recovery 'clk'
-Slack : 0.808
-TNS   : 0.000
-
-Type  : Fast Model Removal 'reset'
-Slack : -2.870
-TNS   : -222.191
-
-Type  : Fast Model Removal 'clk'
-Slack : -0.428
-TNS   : -4.280
 
 Type  : Fast Model Removal 'keyboard:inst|psclk:inst2|Dreg:reg1|Q'
-Slack : 0.006
-TNS   : 0.000
-
-Type  : Fast Model Removal 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|clkdiv'
-Slack : 0.056
-TNS   : 0.000
-
-Type  : Fast Model Removal 'keyboard:inst|clkDiv:inst|temp'
-Slack : 0.296
+Slack : 0.582
 TNS   : 0.000
 
 Type  : Fast Model Removal 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|vs'
-Slack : 0.436
+Slack : 0.743
 TNS   : 0.000
 
 Type  : Fast Model Minimum Pulse Width 'clk'
 Slack : -1.380
 TNS   : -19.380
 
-Type  : Fast Model Minimum Pulse Width 'reset'
-Slack : -1.320
-TNS   : -436.822
-
 Type  : Fast Model Minimum Pulse Width 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|vs'
 Slack : -0.500
-TNS   : -112.000
+TNS   : -146.000
 
 Type  : Fast Model Minimum Pulse Width 'GameBoard1:inst6|vga_controllerz:vgaSync_instance|clkdiv'
 Slack : -0.500

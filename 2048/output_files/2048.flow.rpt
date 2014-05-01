@@ -1,5 +1,5 @@
 Flow report for 2048
-Thu May 01 03:10:45 2014
+Thu May 01 04:36:03 2014
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
@@ -40,17 +40,17 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Flow Summary                                                                    ;
 +------------------------------------+--------------------------------------------+
-; Flow Status                        ; Successful - Thu May 01 03:10:45 2014      ;
+; Flow Status                        ; Successful - Thu May 01 04:36:03 2014      ;
 ; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
 ; Revision Name                      ; 2048                                       ;
 ; Top-level Entity Name              ; 2048                                       ;
 ; Family                             ; Cyclone II                                 ;
 ; Device                             ; EP2C35F672C6                               ;
 ; Timing Models                      ; Final                                      ;
-; Total logic elements               ; 12,601 / 33,216 ( 38 % )                   ;
-;     Total combinational functions  ; 12,592 / 33,216 ( 38 % )                   ;
-;     Dedicated logic registers      ; 186 / 33,216 ( < 1 % )                     ;
-; Total registers                    ; 186                                        ;
+; Total logic elements               ; 16,656 / 33,216 ( 50 % )                   ;
+;     Total combinational functions  ; 16,616 / 33,216 ( 50 % )                   ;
+;     Dedicated logic registers      ; 220 / 33,216 ( < 1 % )                     ;
+; Total registers                    ; 220                                        ;
 ; Total pins                         ; 54 / 475 ( 11 % )                          ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 0 / 483,840 ( 0 % )                        ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/01/2014 03:06:59 ;
+; Start date & time ; 05/01/2014 04:32:23 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; 2048                ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +-------------------------------------+--------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                          ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+--------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 92378956297478.139893161901488 ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 92378956297478.139893674109932 ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                           ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)         ; <None>        ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                             ; --            ; --          ; --             ;
@@ -92,12 +92,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:01:21     ; 1.0                     ; 543 MB              ; 00:01:21                           ;
-; Fitter                    ; 00:02:03     ; 1.0                     ; 780 MB              ; 00:02:02                           ;
-; Assembler                 ; 00:00:02     ; 1.0                     ; 443 MB              ; 00:00:02                           ;
-; TimeQuest Timing Analyzer ; 00:00:05     ; 1.0                     ; 594 MB              ; 00:00:05                           ;
-; EDA Netlist Writer        ; 00:00:07     ; 1.0                     ; 506 MB              ; 00:00:07                           ;
-; Total                     ; 00:03:38     ; --                      ; --                  ; 00:03:37                           ;
+; Analysis & Synthesis      ; 00:01:24     ; 1.0                     ; 590 MB              ; 00:01:23                           ;
+; Fitter                    ; 00:01:56     ; 1.0                     ; 797 MB              ; 00:01:55                           ;
+; Assembler                 ; 00:00:03     ; 1.0                     ; 455 MB              ; 00:00:03                           ;
+; TimeQuest Timing Analyzer ; 00:00:04     ; 1.0                     ; 581 MB              ; 00:00:03                           ;
+; EDA Netlist Writer        ; 00:00:09     ; 1.0                     ; 553 MB              ; 00:00:08                           ;
+; Total                     ; 00:03:36     ; --                      ; --                  ; 00:03:32                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
