@@ -29,6 +29,7 @@ entity GameBoard1 is
     Port ( clk : in std_logic;
            reset : in std_logic;
 			  newKey : in std_logic;
+			  ldSeed : in std_logic;
 			  keyCode : in std_logic_vector(7 downto 0);
            Red   : out std_logic_vector(9 downto 0);
            Green : out std_logic_vector(9 downto 0);
@@ -52,6 +53,7 @@ component Tiles is
     Port ( Reset : in std_logic;
 			  frame_clk : in std_logic;
 		     newKey : in std_logic;
+			  randIn : in std_logic_vector(7 downto 0);
 			  --need some Tiles stuff
 			  --taken : in gbBlocks;
 			  --sprite : in sprite_set;
@@ -110,6 +112,16 @@ component Sprites is
 				score_sprite_out : out array_16x16
 				);
 end component;	
+
+component randtop is
+    Port (
+	 	clk_en: in std_logic;
+	 	clk: in std_logic;
+		load_seed: in std_logic;
+		seed: in std_logic_vector(7 downto 0);
+		rand_out: out std_logic_vector(7 downto 0)
+	 );
+end component;
 
 signal Reset_h, vsSig : std_logic;
 signal DrawXSig, DrawYSig : std_logic_vector(9 downto 0);
@@ -172,12 +184,12 @@ signal sprite_back_color : std_logic_vector (29 downto 0) := "000000000000000000
 
 
 
-
+signal randTile : std_logic_vector(7 downto 0);
 signal outFree : game_board_free_spaces; --:= (('0', '0', '0', '0'), ('0', '0', '0', '0'), ('0', '0', '0', '0'), ('0', '0', '0', '0'));
 signal outSprites : sprite_location; --:= (("0000","0000","0000","0000"),("0000","0000","0000","0000"),("0000","0000","0000","0000"),("0000","0000","0000","0000"));
 
 
-
+signal seed : std_logic := '1';
 
 
 --shared variable Draw_rs_x : integer range 0 to 15 := 0;
@@ -225,6 +237,7 @@ tiles_instance : Tiles
             frame_clk => vsSig, 
             newKey => newKey,
 				keyCode => keyCode,
+				randIn => randTile,
 				outFree => outFree,
 			   outSprites => outSprites,
 				--need Tiles stuff here
@@ -248,6 +261,13 @@ color_instance : Color_Mapper
             Red => Red,
             Green => Green,
             Blue => Blue);
+
+rand_instance : randtop
+	Port Map(clk_en => '1',
+				clk => clk,
+				load_seed => ldseed,
+				seed => "01000100",
+				rand_out => randTile);
 				
 sprites_instance : Sprites
 	Port Map(
@@ -264,7 +284,7 @@ sprites_instance : Sprites
 					score_sprite_out =>score_sprite); --forgot this was driving score_sprite
 
 vs <= vsSig;
-
+seed <= '0';
 end Behavioral;      
 
 
